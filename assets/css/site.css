@@ -1,0 +1,351 @@
+:root {
+  --bg: #f3efe6;
+  --paper: rgba(255, 252, 247, 0.84);
+  --panel: rgba(26, 33, 31, 0.92);
+  --text: #1a211f;
+  --muted: #5f655d;
+  --line: rgba(26, 33, 31, 0.14);
+  --accent: #a24a2c;
+  --accent-soft: rgba(162, 74, 44, 0.12);
+  --shadow: 0 24px 60px rgba(26, 33, 31, 0.08);
+  --radius: 24px;
+  --max-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(162, 74, 44, 0.09), transparent 30%),
+    linear-gradient(180deg, #efe8da 0%, #f7f4ec 45%, #ede7db 100%);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-shell {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+  padding: 1.25rem 0 3rem;
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-header {
+  padding: 0.75rem 0 2rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: var(--panel);
+  color: #f9f6f0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.brand-text,
+.site-nav,
+.eyebrow,
+.panel-label,
+.news-meta,
+.seminar-date,
+.seminar-details,
+.archive-card p,
+.page-link-row {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.brand-text,
+.site-nav a,
+.news-meta,
+.seminar-date,
+.seminar-details,
+.archive-card p {
+  color: var(--muted);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-nav a,
+.text-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+  gap: 1.5rem;
+  align-items: stretch;
+  margin-bottom: 2rem;
+}
+
+.hero-copy,
+.hero-panel,
+.rail-card,
+.archive-card,
+.news-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  padding: 2.75rem;
+}
+
+.hero-panel,
+.rail-card,
+.archive-card,
+.news-item {
+  padding: 1.5rem;
+}
+
+.eyebrow,
+.panel-label {
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Iowan Old Style, Palatino, "Book Antiqua", Georgia, serif;
+  font-weight: 500;
+  line-height: 0.98;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 5.8rem);
+  max-width: 12ch;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.hero-body {
+  margin-top: 1.5rem;
+  max-width: 58ch;
+  font-size: 1.08rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.8fr);
+  gap: 1.5rem;
+}
+
+.content-main,
+.content-rail {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.homepage-section,
+.page-header,
+.stack-list,
+.archive-grid,
+.seminar-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.section-heading {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.person-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.person-portrait {
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #ddd7cc;
+}
+
+.person-copy {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.person-copy p {
+  color: var(--muted);
+}
+
+.rail-card,
+.seminar-preview-list,
+.stack-list,
+.archive-grid,
+.seminar-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.rail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.news-item,
+.seminar-talk {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.news-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.seminar-talk {
+  grid-template-columns: 120px minmax(0, 1fr);
+  align-items: start;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.seminar-talk:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.seminar-copy {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.seminar-speaker span {
+  color: var(--muted);
+}
+
+.seminar-preview-list article {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.seminar-preview-list article:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.page-header {
+  padding: 1rem 0 0.5rem;
+}
+
+.archive-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.page-link-row,
+.site-footer {
+  padding-top: 1.25rem;
+}
+
+.site-footer {
+  margin-top: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-shell {
+    width: min(calc(100% - 1.25rem), var(--max-width));
+  }
+
+  .site-header,
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .people-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seminar-talk {
+    grid-template-columns: 1fr;
+  }
+}

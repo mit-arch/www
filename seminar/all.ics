@@ -1,0 +1,71 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MIT Architecture Research Group//Seminar Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:MIT Architecture Research Group Seminar
+X-WR-CALDESC:All seminar talks across MIT Architecture Research Group terms
+BEGIN:VEVENT
+UID:fall-2025-1-priya-narasimhan@mit-arch
+DTSTAMP:20260630T172741Z
+DTSTART:20250918T160000
+DTEND:20250918T170000
+SUMMARY:Priya Narasimhan: Co-Designing Inference Accelerators for Rapidly Evolving Models
+DESCRIPTION:Priya Narasimhan\, AMD Research\nTerm: Fall 2025\nTheme: Accelerators\, Memory Systems\, and Efficient Compute\nFormat: In person\nAbstract: Lessons from deploying accelerator designs that must keep pace with changing model operators\, memory access patterns\, and serving constraints.
+LOCATION:32-G449
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2025-2-mateo-alvarez@mit-arch
+DTSTAMP:20260630T172741Z
+DTSTART:20251009T160000
+DTEND:20251009T170000
+SUMMARY:Mateo Alvarez: Smarter Memory Systems for Irregular Parallel Workloads
+DESCRIPTION:Mateo Alvarez\, University of Michigan\nTerm: Fall 2025\nTheme: Accelerators\, Memory Systems\, and Efficient Compute\nFormat: Hybrid\nAbstract: Architectural support for reducing tail latency and improving bandwidth efficiency in graph analytics and sparse tensor codes.
+LOCATION:32-G449
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2025-3-aisha-green@mit-arch
+DTSTAMP:20260630T172741Z
+DTSTART:20251106T160000
+DTEND:20251106T170000
+SUMMARY:Aisha Green: Warehouse-Scale Scheduling Meets Architecture
+DESCRIPTION:Aisha Green\, Google\nTerm: Fall 2025\nTheme: Accelerators\, Memory Systems\, and Efficient Compute\nFormat: Zoom\nAbstract: Cross-layer opportunities between cluster schedulers and node-level architecture for training and serving large models.
+LOCATION:32-G449
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-1-elena-petrov@mit-arch
+DTSTAMP:20260630T172741Z
+DTSTART:20260213T130000
+DTEND:20260213T140000
+SUMMARY:Elena Petrov: Compiler-Guided Locality Management for Disaggregated Memory
+DESCRIPTION:Elena Petrov\, ETH Zurich\nTerm: Spring 2026\nTheme: Hardware-Software Co-Design for Modern Systems\nFormat: Hybrid\nAbstract: New approaches for orchestrating data placement and movement when memory is no longer tightly coupled to a single compute node.
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-2-marcus-bell@mit-arch
+DTSTAMP:20260630T172741Z
+DTSTART:20260306T130000
+DTEND:20260306T140000
+SUMMARY:Marcus Bell: Simulation Infrastructure for Fast Accelerator Design Iteration
+DESCRIPTION:Marcus Bell\, NVIDIA Research\nTerm: Spring 2026\nTheme: Hardware-Software Co-Design for Modern Systems\nFormat: In person\nAbstract: Building simulation stacks that preserve enough fidelity for architecture research without slowing down iteration to a crawl.
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-3-farah-nasser@mit-arch
+DTSTAMP:20260630T172741Z
+DTSTART:20260410T130000
+DTEND:20260410T140000
+SUMMARY:Farah Nasser: Rethinking On-Chip Networks for Multi-Tenant AI Systems
+DESCRIPTION:Farah Nasser\, University of Toronto\nTerm: Spring 2026\nTheme: Hardware-Software Co-Design for Modern Systems\nFormat: Zoom\nAbstract: How contention isolation and topology choices interact when accelerators are shared across jobs with different performance goals.
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-4-julian-park@mit-arch
+DTSTAMP:20260630T172741Z
+DTSTART:20260501T130000
+DTEND:20260501T140000
+SUMMARY:Julian Park: Cross-Layer Power Management for Latency-Critical Services
+DESCRIPTION:Julian Park\, Princeton University\nTerm: Spring 2026\nTheme: Hardware-Software Co-Design for Modern Systems\nFormat: In person\nAbstract: Coordinating software control loops and hardware power states to reduce energy use without violating tail-latency targets.
+LOCATION:34-401
+END:VEVENT
+END:VCALENDAR
