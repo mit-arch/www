@@ -13,9 +13,16 @@ function readYamlArray(filePath) {
   return yaml.load(fs.readFileSync(filePath, "utf8")) || [];
 }
 
+function sortAlumni(items) {
+  return items.slice().sort((left, right) => {
+    return Number(right.graduation_year || 0) - Number(left.graduation_year || 0);
+  });
+}
+
 module.exports = function people() {
   return SECTIONS.reduce((accumulator, section) => {
-    accumulator[section] = readYamlArray(path.join(PEOPLE_DIR, `${section}.yaml`));
+    const items = readYamlArray(path.join(PEOPLE_DIR, `${section}.yaml`));
+    accumulator[section] = section === "alumni" ? sortAlumni(items) : items;
     return accumulator;
   }, {});
 };

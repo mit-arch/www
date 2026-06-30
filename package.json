@@ -4,12 +4,14 @@
   "private": true,
   "description": "Static site for the MIT Architecture Research group",
   "scripts": {
-    "dev": "eleventy --serve",
-    "build": "eleventy",
+    "build:css": "sass --no-source-map src/assets/css/site.scss src/assets/css/site.css",
+    "dev": "npm run build:css && eleventy --serve",
+    "build": "npm run build:css && eleventy",
     "clean": "rm -rf dist"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "sass": "^1.93.0"
   }
 }

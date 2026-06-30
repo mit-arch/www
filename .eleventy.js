@@ -12,7 +12,14 @@ function shortYear(value) {
 }
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/images": "assets/images" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/css/site.css": "assets/css/site.css" });
+
+  eleventyConfig.addCollection("newsItems", (collectionApi) =>
+    collectionApi
+      .getFilteredByGlob("src/news-items/*.md")
+      .sort((a, b) => b.date - a.date),
+  );
 
   eleventyConfig.addFilter("readableDate", (value, options = {}) => {
     if (!value) {
@@ -47,10 +54,6 @@ module.exports = function (eleventyConfig) {
 
     const localPath = path.join(process.cwd(), "src", assetPath.replace(/^\//, ""));
     return fs.existsSync(localPath);
-  });
-
-  eleventyConfig.addFilter("sortedNews", (items) => {
-    return (items || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
   });
 
   eleventyConfig.addFilter("personSubtitle", (person) => {

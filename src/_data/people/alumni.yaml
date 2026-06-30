@@ -1,9 +1,9 @@
 - name: Hannah Wu
-  current_role: CPU Performance Engineer, Apple
+  graduation_year: 2024
+  current_job: CPU Performance Engineer, Apple
   website: https://example.edu/hannah-wu
-  image: /assets/people/hannah-wu.jpg
 
 - name: Omar El-Sayed
-  current_role: Assistant Professor, Carnegie Mellon University
+  graduation_year: 2023
+  current_job: Assistant Professor, Carnegie Mellon University
   website: https://example.edu/omar-el-sayed
-  image: /assets/people/omar-el-sayed.jpg

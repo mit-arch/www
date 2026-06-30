@@ -10,7 +10,7 @@ description: News and announcements from the MIT Architecture Research group
 </section>
 
 <section class="stack-list">
-  {% for item in newsItems | sortedNews %}
+  {% for item in collections.newsItems %}
     {% set item = item %}
     {% include "components/news-item.njk" %}
   {% endfor %}

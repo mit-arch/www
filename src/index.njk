@@ -12,7 +12,7 @@ description: MIT Architecture Research group homepage
       <h2>News</h2>
     </div>
     <div class="news-list">
-      {% for item in newsItems | sortedNews %}
+      {% for item in collections.newsItems %}
         {% if loop.index <= site.newsHomepageCount %}
           {% set item = item %}
           {% include "components/news-item.njk" %}
@@ -64,10 +64,21 @@ description: MIT Architecture Research group homepage
     <div class="section-heading">
       <h2>Alumni</h2>
     </div>
-    <div class="people-grid">
+    <div class="alumni-list">
       {% for person in people.alumni %}
-        {% set person = person %}
-        {% include "components/person-card.njk" %}
+        <article class="alumni-item">
+          <p class="alumni-name">
+            {% if person.website %}
+              <a href="{{ person.website }}" {% if person.website | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>{{ person.name }}</a>
+            {% else %}
+              {{ person.name }}
+            {% endif %}
+          </p>
+          <p class="alumni-year">{{ person.graduation_year }}</p>
+          {% if person.current_job %}
+            <p class="alumni-job">{{ person.current_job }}</p>
+          {% endif %}
+        </article>
       {% endfor %}
     </div>
   </section>

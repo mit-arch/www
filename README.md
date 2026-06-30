@@ -16,6 +16,7 @@ npm run build
 ```
 
 The generated site is written to `dist/`.
+Sass source lives in `src/assets/css/site.scss` and compiles to `src/assets/css/site.css` during `npm run build` and `npm run dev`.
 
 ## Content locations
 
@@ -23,7 +24,7 @@ The generated site is written to `dist/`.
 - `src/_data/people/students.yaml`
 - `src/_data/people/affiliates.yaml`
 - `src/_data/people/alumni.yaml`
-- `src/_data/news.yaml`
+- `src/news-items/*.md`
 - `src/_data/seminars/config.yaml`
 - `src/_data/seminars/*.yaml`
 
@@ -46,18 +47,33 @@ Recommended fields:
 
 If `website` is present, the person’s name and image become links. If `image` points to a missing file, the site falls back to the built-in placeholder portrait.
 
+For alumni entries, use:
+
+- `name`
+- `graduation_year`
+- optional `current_job`
+- optional `website`
+
 ## Updating news
 
-Append a new item to `src/_data/news.yaml` with:
+Add a new Markdown file to `src/news-items/`.
+
+Required frontmatter:
 
 - `date` in `YYYY-MM-DD`
-- `title`
-- `summary`
+- `kind`
 
-Optional fields:
+Write the news item itself as the Markdown body. Inline links should be part of the text rather than separate fields.
 
-- `link`
-- `category`
+Example:
+
+```md
+---
+date: 2026-06-30
+kind: Paper Acceptance
+---
+Our latest work was accepted to [ISCA 2026](https://example.edu).
+```
 
 News is sorted automatically from newest to oldest.
 
