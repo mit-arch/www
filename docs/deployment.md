@@ -10,8 +10,9 @@ Assumptions:
 
 GitHub repository settings:
 
-1. In `Settings > Pages`, set `Source` to `GitHub Actions`.
-2. Keep the deployment branch as `main` unless you also update the workflow trigger.
+1. The workflow is configured to enable GitHub Pages automatically on first run.
+2. If your organization restricts that API call, enable Pages manually in `Settings > Pages` and set `Source` to `GitHub Actions`.
+3. Keep the deployment branch as `main` unless you also update the workflow trigger.
 
 Notes:
 
