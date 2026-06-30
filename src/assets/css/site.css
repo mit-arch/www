@@ -109,26 +109,9 @@ img {
 
 .site-nav a,
 .text-link {
-  position: relative;
-}
-
-.site-nav a::after,
-.text-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.18rem;
-  width: 100%;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 180ms ease;
-}
-
-.site-nav a:hover::after,
-.text-link:hover::after {
-  transform: scaleX(1);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18rem;
 }
 
 .hero {
@@ -262,6 +245,12 @@ p {
 .archive-grid,
 .seminar-list {
   display: grid;
+  gap: 1rem;
+}
+
+.rail-links {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 

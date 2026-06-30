@@ -9,6 +9,10 @@ description: Current architecture seminar term
   <p>{{ currentSeminar.description or site.seminarBlurb }}</p>
 </section>
 
+<p class="page-link-row">
+  <a class="text-link" href="/seminar/all.ics">Subscribe to calendar</a>
+</p>
+
 {% if currentSeminar.talks.length %}
   {% set term = currentSeminar %}
   {% include "components/seminar-list.njk" %}

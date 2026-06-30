@@ -68,7 +68,7 @@ Each term lives in its own YAML file inside `src/_data/seminars/`, such as `spri
 Each file has:
 
 - a `term:` block with `slug`, `title`, and optional `theme`, `host`, `schedule_note`
-- a `talks:` list with `date`, `speaker`, `affiliation`, `title`, and optional supporting fields
+- a `talks:` list with `date`, `speaker`, `affiliation`, `title`, and optional supporting fields such as `time`, `location`, `format`, `abstract`, and `link`
 
 To add a talk, append a new entry under `talks:` in the relevant term file.
 
@@ -85,3 +85,9 @@ To switch the active seminar page:
 2. Set `active_term` to the new term slug.
 
 Older terms automatically remain available in the archive.
+
+## Calendar subscription
+
+The site generates a single calendar feed for all seminar talks across all terms at `/seminar/all.ics`.
+
+If a talk includes `time`, the feed exports it as a timed event. If `time` is omitted, the event is exported as an all-day entry.

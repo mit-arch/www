@@ -13,6 +13,10 @@ eleventyExcludeFromCollections: true
   <p>{{ term.description or site.seminarBlurb }}</p>
 </section>
 
+<p class="page-link-row">
+  <a class="text-link" href="/seminar/all.ics">Subscribe to calendar</a>
+</p>
+
 {% if term.talks.length %}
   {% include "components/seminar-list.njk" %}
 {% else %}

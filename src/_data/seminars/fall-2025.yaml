@@ -7,6 +7,8 @@ term:
 
 talks:
   - date: 2025-09-18
+    time: 4:00 PM
+    location: 32-G449
     speaker: Priya Narasimhan
     affiliation: AMD Research
     title: Co-Designing Inference Accelerators for Rapidly Evolving Models
@@ -14,6 +16,8 @@ talks:
     format: In person
 
   - date: 2025-10-09
+    time: 4:00 PM
+    location: 32-G449
     speaker: Mateo Alvarez
     affiliation: University of Michigan
     title: Smarter Memory Systems for Irregular Parallel Workloads
@@ -21,6 +25,8 @@ talks:
     format: Hybrid
 
   - date: 2025-11-06
+    time: 4:00 PM
+    location: 32-G449
     speaker: Aisha Green
     affiliation: Google
     title: Warehouse-Scale Scheduling Meets Architecture

@@ -7,6 +7,8 @@ term:
 
 talks:
   - date: 2026-02-13
+    time: 1:00 PM
+    location: 34-401
     speaker: Elena Petrov
     affiliation: ETH Zurich
     title: Compiler-Guided Locality Management for Disaggregated Memory
@@ -14,6 +16,8 @@ talks:
     format: Hybrid
 
   - date: 2026-03-06
+    time: 1:00 PM
+    location: 34-401
     speaker: Marcus Bell
     affiliation: NVIDIA Research
     title: Simulation Infrastructure for Fast Accelerator Design Iteration
@@ -21,6 +25,8 @@ talks:
     format: In person
 
   - date: 2026-04-10
+    time: 1:00 PM
+    location: 34-401
     speaker: Farah Nasser
     affiliation: University of Toronto
     title: Rethinking On-Chip Networks for Multi-Tenant AI Systems
@@ -28,6 +34,8 @@ talks:
     format: Zoom
 
   - date: 2026-05-01
+    time: 1:00 PM
+    location: 34-401
     speaker: Julian Park
     affiliation: Princeton University
     title: Cross-Layer Power Management for Latency-Critical Services
