@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const site = require("./src/_data/site");
 
 function shortYear(value) {
   if (value === undefined || value === null || value === "") {
@@ -85,6 +86,18 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("isExternalUrl", (value) => /^https?:\/\//.test(value || ""));
+  eleventyConfig.addFilter("siteUrl", (value) => {
+    const stringValue = String(value || "");
+
+    if (!stringValue || /^https?:\/\//.test(stringValue) || stringValue.startsWith("mailto:")) {
+      return stringValue;
+    }
+
+    const normalizedBase = (site.basePath || "").replace(/\/$/, "");
+    const normalizedPath = stringValue.startsWith("/") ? stringValue : `/${stringValue}`;
+
+    return normalizedBase ? `${normalizedBase}${normalizedPath}` : normalizedPath;
+  });
 
   return {
     dir: {
@@ -93,6 +106,7 @@ module.exports = function (eleventyConfig) {
       data: "_data",
       output: "dist"
     },
+    pathPrefix: site.basePath,
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
     templateFormats: ["njk", "md", "html", "11ty.js"]

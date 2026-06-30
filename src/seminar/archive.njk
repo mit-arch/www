@@ -10,7 +10,7 @@ description: Archived seminar terms
 </section>
 
 <p class="page-link-row">
-  <a class="text-link" href="/seminar/all.ics">Subscribe to calendar</a>
+  <a class="text-link" href="{{ '/seminar/all.ics' | siteUrl }}">Subscribe to calendar</a>
 </p>
 
 <section class="archive-grid">
@@ -18,7 +18,7 @@ description: Archived seminar terms
     {% if term.slug != currentSeminar.slug %}
       <article class="archive-card">
         <p>{{ term.talks.length }} talks</p>
-        <h2><a href="/seminar/{{ term.slug }}/">{{ term.label }}</a></h2>
+        <h2><a href="{{ ('/seminar/' + term.slug + '/') | siteUrl }}">{{ term.label }}</a></h2>
         <p>{{ term.description or site.seminarBlurb }}</p>
       </article>
     {% endif %}

@@ -1,6 +1,9 @@
+const basePath = process.env.SITE_BASE_PATH || "/mit-arch";
+
 module.exports = {
   title: "MIT Architecture Research Group",
   shortTitle: "MIT AR",
+  basePath,
   description:
     "Research in computer architecture, systems, compilers, and hardware-software co-design.",
   groupName: "MIT Architecture Research Group",

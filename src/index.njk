@@ -13,7 +13,7 @@ description: MIT Architecture Research group homepage
     <p class="panel-label">Current seminar</p>
     <h2>{{ currentSeminar.label }}</h2>
     <p>{{ site.seminarBlurb }}</p>
-    <a class="text-link" href="/seminar/">View this term</a>
+    <a class="text-link" href="{{ '/seminar/' | siteUrl }}">View this term</a>
   </aside>
 </section>
 
@@ -81,7 +81,7 @@ description: MIT Architecture Research group homepage
           {% include "components/news-item.njk" %}
         {% endfor %}
       </div>
-      <a class="text-link" href="/news/">All news</a>
+      <a class="text-link" href="{{ '/news/' | siteUrl }}">All news</a>
     </section>
 
     <section class="rail-card" id="seminar-preview">
@@ -99,8 +99,8 @@ description: MIT Architecture Research group homepage
         {% endfor %}
       </div>
       <p class="rail-links">
-        <a class="text-link" href="/seminar/">Full schedule</a>
-        <a class="text-link" href="/seminar/all.ics">Subscribe</a>
+        <a class="text-link" href="{{ '/seminar/' | siteUrl }}">Full schedule</a>
+        <a class="text-link" href="{{ '/seminar/all.ics' | siteUrl }}">Subscribe</a>
       </p>
     </section>
   </aside>

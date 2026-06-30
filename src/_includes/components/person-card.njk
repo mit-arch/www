@@ -3,10 +3,10 @@
 <article class="person-card">
   {% if href %}
     <a class="person-portrait-link" href="{{ href }}" {% if href | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>
-      <img class="person-portrait" src="{{ imagePath }}" alt="Portrait of {{ person.name }}">
+      <img class="person-portrait" src="{{ imagePath | siteUrl }}" alt="Portrait of {{ person.name }}">
     </a>
   {% else %}
-    <img class="person-portrait" src="{{ imagePath }}" alt="Portrait of {{ person.name }}">
+    <img class="person-portrait" src="{{ imagePath | siteUrl }}" alt="Portrait of {{ person.name }}">
   {% endif %}
   <div class="person-copy">
     <h3>

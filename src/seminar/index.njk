@@ -10,7 +10,7 @@ description: Current architecture seminar term
 </section>
 
 <p class="page-link-row">
-  <a class="text-link" href="/seminar/all.ics">Subscribe to calendar</a>
+  <a class="text-link" href="{{ '/seminar/all.ics' | siteUrl }}">Subscribe to calendar</a>
 </p>
 
 {% if currentSeminar.talks.length %}
@@ -21,5 +21,5 @@ description: Current architecture seminar term
 {% endif %}
 
 <p class="page-link-row">
-  <a class="text-link" href="/seminar/archive/">Browse past terms</a>
+  <a class="text-link" href="{{ '/seminar/archive/' | siteUrl }}">Browse past terms</a>
 </p>
