@@ -25,9 +25,7 @@ body {
   margin: 0;
   font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(162, 74, 44, 0.09), transparent 30%),
-    linear-gradient(180deg, #efe8da 0%, #f7f4ec 45%, #ede7db 100%);
+  background: radial-gradient(circle at top left, rgba(162, 74, 44, 0.09), transparent 30%), linear-gradient(180deg, #efe8da 0%, #f7f4ec 45%, #ede7db 100%);
   min-height: 100vh;
 }
 
@@ -42,7 +40,7 @@ img {
 }
 
 .site-shell {
-  width: min(calc(100% - 2rem), var(--max-width));
+  width: min(100% - 2rem, var(--max-width));
   margin: 0 auto;
   padding: 1.25rem 0 3rem;
 }
@@ -251,6 +249,30 @@ p {
   line-height: 1.45;
 }
 
+.alumni-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.alumni-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) 90px minmax(0, 1.2fr);
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.5rem 0;
+}
+
+.alumni-name,
+.alumni-year,
+.alumni-job {
+  line-height: 1.4;
+}
+
+.alumni-year,
+.alumni-job {
+  color: var(--muted);
+}
+
 .hero-news {
   align-content: start;
   gap: 1.1rem;
@@ -283,7 +305,12 @@ p {
 .news-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.news-meta-separator {
+  color: var(--muted);
 }
 
 .seminar-talk {
@@ -328,9 +355,13 @@ p {
   gap: 0.55rem;
 }
 
-.hero-news h3 {
-  font-size: 1.05rem;
-  line-height: 1.15;
+.news-copy {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.news-copy > * + * {
+  margin-top: 0.35rem;
 }
 
 .hero-news .text-link {
@@ -357,31 +388,99 @@ p {
   font-size: 0.92rem;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 980px) {
+  .site-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+  }
+  .site-nav {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.85rem 1.1rem;
+    padding-top: 0.2rem;
+  }
   .hero {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
-
   .hero-copy {
     padding: 2rem;
   }
+  .hero-news {
+    padding: 1.35rem;
+  }
+  .people-grid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  .alumni-item {
+    grid-template-columns: minmax(0, 1fr) 80px;
+    gap: 0.35rem 1rem;
+  }
+  .alumni-job {
+    grid-column: 1/-1;
+  }
 }
-
 @media (max-width: 640px) {
   .site-shell {
-    width: min(calc(100% - 1.25rem), var(--max-width));
+    width: min(100% - 1.25rem, var(--max-width));
+    padding: 0.9rem 0 2.25rem;
   }
-
   .site-header,
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  .people-grid {
-    grid-template-columns: 1fr;
+  .site-header {
+    gap: 0.75rem;
+    padding-bottom: 1rem;
   }
-
+  .wordmark {
+    gap: 0.45rem;
+  }
+  .wordmark-mit,
+  .wordmark-arch {
+    font-size: clamp(1.7rem, 11vw, 2.35rem);
+  }
+  .site-nav {
+    font-size: 0.9rem;
+    gap: 0.6rem 0.9rem;
+  }
+  .hero-copy,
+  .hero-news,
+  .archive-card,
+  .news-item {
+    padding: 1.15rem;
+    border-radius: 18px;
+  }
+  .hero-body {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  .homepage-section {
+    padding-top: 1rem;
+  }
+  .section-heading h2,
+  .hero-news .section-heading h2 {
+    font-size: 1.35rem;
+  }
+  .person-card {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+  .person-portrait {
+    width: 60px;
+    height: 60px;
+  }
+  .person-name {
+    font-size: 1rem;
+  }
+  .alumni-item {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+    padding: 0.35rem 0;
+  }
   .seminar-talk {
     grid-template-columns: 1fr;
   }
