@@ -1,0 +1,24 @@
+<div class="seminar-list">
+  {% for talk in term.talks %}
+    <article class="seminar-talk">
+      <div class="seminar-date">{{ talk.date | seminarDate }}</div>
+      <div class="seminar-copy">
+        <p class="seminar-speaker">{{ talk.speaker }}{% if talk.affiliation %}, <span>{{ talk.affiliation }}</span>{% endif %}</p>
+        <h3>{{ talk.title }}</h3>
+        <p class="seminar-details">
+          {% if talk.time %}{{ talk.time }}{% endif %}
+          {% if talk.time and talk.location %} · {% endif %}
+          {% if talk.location %}{{ talk.location }}{% endif %}
+          {% if (talk.time or talk.location) and talk.format %} · {% endif %}
+          {% if talk.format %}{{ talk.format }}{% endif %}
+        </p>
+        {% if talk.abstract %}
+          <p>{{ talk.abstract }}</p>
+        {% endif %}
+        {% if talk.link %}
+          <p><a href="{{ talk.link }}" {% if talk.link | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>Talk link</a></p>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+</div>

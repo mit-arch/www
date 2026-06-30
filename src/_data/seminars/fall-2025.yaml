@@ -1,0 +1,28 @@
+term:
+  slug: fall-2025
+  title: Fall 2025
+  theme: Accelerators, Memory Systems, and Efficient Compute
+  host: MIT Architecture Research Group
+  schedule_note: Thursdays, 4:00 PM, 32-G449
+
+talks:
+  - date: 2025-09-18
+    speaker: Priya Narasimhan
+    affiliation: AMD Research
+    title: Co-Designing Inference Accelerators for Rapidly Evolving Models
+    abstract: Lessons from deploying accelerator designs that must keep pace with changing model operators, memory access patterns, and serving constraints.
+    format: In person
+
+  - date: 2025-10-09
+    speaker: Mateo Alvarez
+    affiliation: University of Michigan
+    title: Smarter Memory Systems for Irregular Parallel Workloads
+    abstract: Architectural support for reducing tail latency and improving bandwidth efficiency in graph analytics and sparse tensor codes.
+    format: Hybrid
+
+  - date: 2025-11-06
+    speaker: Aisha Green
+    affiliation: Google
+    title: Warehouse-Scale Scheduling Meets Architecture
+    abstract: Cross-layer opportunities between cluster schedulers and node-level architecture for training and serving large models.
+    format: Zoom

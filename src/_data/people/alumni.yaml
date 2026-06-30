@@ -1,0 +1,9 @@
+- name: Hannah Wu
+  current_role: CPU Performance Engineer, Apple
+  website: https://example.edu/hannah-wu
+  image: /assets/people/hannah-wu.jpg
+
+- name: Omar El-Sayed
+  current_role: Assistant Professor, Carnegie Mellon University
+  website: https://example.edu/omar-el-sayed
+  image: /assets/people/omar-el-sayed.jpg

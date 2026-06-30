@@ -1,0 +1,16 @@
+<article class="news-item">
+  <div class="news-meta">
+    <span>{{ item.date | readableDate }}</span>
+    {% if item.category or item.kind %}
+      <span>{{ item.category or item.kind }}</span>
+    {% endif %}
+  </div>
+  <h3>
+    {% if item.link %}
+      <a href="{{ item.link }}" {% if item.link | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>{{ item.title }}</a>
+    {% else %}
+      {{ item.title }}
+    {% endif %}
+  </h3>
+  <p>{{ item.summary }}</p>
+</article>

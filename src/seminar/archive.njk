@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+title: Seminar Archive
+description: Archived seminar terms
+---
+<section class="page-header">
+  <p class="eyebrow">Seminar</p>
+  <h1>Archive</h1>
+  <p>Past terms remain available as stand-alone schedule pages.</p>
+</section>
+
+<section class="archive-grid">
+  {% for term in seminarTerms %}
+    {% if term.slug != currentSeminar.slug %}
+      <article class="archive-card">
+        <p>{{ term.talks.length }} talks</p>
+        <h2><a href="/seminar/{{ term.slug }}/">{{ term.label }}</a></h2>
+        <p>{{ term.description or site.seminarBlurb }}</p>
+      </article>
+    {% endif %}
+  {% endfor %}
+</section>

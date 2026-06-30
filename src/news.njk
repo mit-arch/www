@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+title: News
+description: News and announcements from the MIT Architecture Research group
+---
+<section class="page-header">
+  <p class="eyebrow">Updates</p>
+  <h1>News</h1>
+  <p>Paper acceptances, awards, and research milestones from the group.</p>
+</section>
+
+<section class="stack-list">
+  {% for item in newsItems | sortedNews %}
+    {% set item = item %}
+    {% include "components/news-item.njk" %}
+  {% endfor %}
+</section>

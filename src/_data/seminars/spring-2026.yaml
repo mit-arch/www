@@ -1,0 +1,35 @@
+term:
+  slug: spring-2026
+  title: Spring 2026
+  theme: Hardware-Software Co-Design for Modern Systems
+  host: MIT Architecture Research Group
+  schedule_note: Fridays, 1:00 PM, 34-401
+
+talks:
+  - date: 2026-02-13
+    speaker: Elena Petrov
+    affiliation: ETH Zurich
+    title: Compiler-Guided Locality Management for Disaggregated Memory
+    abstract: New approaches for orchestrating data placement and movement when memory is no longer tightly coupled to a single compute node.
+    format: Hybrid
+
+  - date: 2026-03-06
+    speaker: Marcus Bell
+    affiliation: NVIDIA Research
+    title: Simulation Infrastructure for Fast Accelerator Design Iteration
+    abstract: Building simulation stacks that preserve enough fidelity for architecture research without slowing down iteration to a crawl.
+    format: In person
+
+  - date: 2026-04-10
+    speaker: Farah Nasser
+    affiliation: University of Toronto
+    title: Rethinking On-Chip Networks for Multi-Tenant AI Systems
+    abstract: How contention isolation and topology choices interact when accelerators are shared across jobs with different performance goals.
+    format: Zoom
+
+  - date: 2026-05-01
+    speaker: Julian Park
+    affiliation: Princeton University
+    title: Cross-Layer Power Management for Latency-Critical Services
+    abstract: Coordinating software control loops and hardware power states to reduce energy use without violating tail-latency targets.
+    format: In person

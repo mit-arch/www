@@ -1,0 +1,17 @@
+- name: Maya Patel
+  program: PhD
+  year: 2027
+  website: https://example.edu/maya-patel
+  image: /assets/people/maya-patel.jpg
+
+- name: Kevin Zhou
+  program: PhD
+  year: 2028
+  website: https://example.edu/kevin-zhou
+  image: /assets/people/kevin-zhou.jpg
+
+- name: Sofia Kim
+  program: MEng
+  year: 2026
+  website: https://example.edu/sofia-kim
+  image: /assets/people/sofia-kim.jpg

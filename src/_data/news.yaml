@@ -1,0 +1,23 @@
+- date: 2026-05-28
+  title: Paper on memory-centric scheduling accepted to ISCA 2026
+  summary: The group’s latest work on coordinated memory-controller and compiler scheduling was accepted to ISCA 2026.
+  link: https://example.edu/news/isca-2026-memory-scheduling
+  category: Paper Acceptance
+
+- date: 2026-04-17
+  title: Best poster award for student work on warehouse-scale accelerator simulation
+  summary: A student-led project on fast design-space exploration for accelerator clusters received best poster recognition.
+  link: https://example.edu/news/accelerator-poster-award
+  category: Award
+
+- date: 2026-02-03
+  title: New seminar series launches on efficient ML systems and architecture
+  summary: The group’s seminar this term highlights research on ML accelerators, interconnects, and hardware-software co-design.
+  link: https://example.edu/news/seminar-series-launch
+  category: Seminar
+
+- date: 2025-11-12
+  title: Alumni collaboration earns MICRO distinguished paper award
+  summary: Recent alumni were recognized for work on cross-layer optimization for latency-sensitive server workloads.
+  link: https://example.edu/news/micro-distinguished-paper
+  category: Award

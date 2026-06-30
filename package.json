@@ -1,0 +1,15 @@
+{
+  "name": "mit-architecture-research-group",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static site for the MIT Architecture Research group",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "js-yaml": "^4.1.0"
+  }
+}

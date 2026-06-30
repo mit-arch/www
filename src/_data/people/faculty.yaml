@@ -1,0 +1,9 @@
+- name: Daniel Sanchez
+  title: Professor of Electrical Engineering and Computer Science
+  website: https://example.edu/daniel-sanchez
+  image: /assets/people/daniel-sanchez.jpg
+
+- name: Jade Lin
+  title: Associate Professor of Electrical Engineering and Computer Science
+  website: https://example.edu/jade-lin
+  image: /assets/people/jade-lin.jpg
