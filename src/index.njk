@@ -3,83 +3,87 @@ layout: layouts/base.njk
 title: Home
 description: MIT Architecture Research group homepage
 ---
-<section class="hero">
-  <div class="hero-copy">
-    <p class="hero-body">{{ site.hero.body }}</p>
+<section class="home-layout">
+  <div class="content-main">
+    <section class="intro-panel">
+      <p class="hero-body">{{ site.hero.body }}</p>
+    </section>
+
+    <section class="homepage-section" id="faculty">
+      <div class="section-heading">
+        <h2>Faculty</h2>
+      </div>
+      <div class="people-grid">
+        {% for person in people.faculty %}
+          {% set person = person %}
+          {% include "components/person-card.njk" %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="homepage-section" id="students">
+      <div class="section-heading">
+        <h2>Students</h2>
+      </div>
+      <div class="people-grid">
+        {% for person in people.students %}
+          {% set person = person %}
+          {% include "components/person-card.njk" %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="homepage-section" id="affiliates">
+      <div class="section-heading">
+        <h2>Affiliates</h2>
+      </div>
+      <div class="people-grid">
+        {% for person in people.affiliates %}
+          {% set person = person %}
+          {% include "components/person-card.njk" %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="homepage-section" id="alumni">
+      <div class="section-heading">
+        <h2>Alumni</h2>
+      </div>
+      <div class="alumni-list">
+        {% for person in people.alumni %}
+          <article class="alumni-item">
+            <p class="alumni-line">
+              {% if person.website %}
+                <a href="{{ person.website }}" {% if person.website | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>{{ person.name }}</a>
+              {% else %}
+                {{ person.name }}
+              {% endif %}
+              <span class="alumni-separator">&middot;</span>
+              <span class="alumni-year">{{ person.graduation_year }}</span>
+              {% if person.current_job %}
+                <span class="alumni-job">, {{ person.current_job }}</span>
+              {% endif %}
+            </p>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
   </div>
-  <aside class="rail-card hero-news" id="news">
-    <div class="section-heading">
-      <h2>News</h2>
-    </div>
-    <div class="news-list">
-      {% for item in collections.newsItems %}
-        {% if loop.index <= site.newsHomepageCount %}
-          {% set item = item %}
-          {% include "components/news-item.njk" %}
-        {% endif %}
-      {% endfor %}
-    </div>
-    <a class="text-link" href="{{ '/news/' | siteUrl }}">All news</a>
-  </aside>
-</section>
 
-<section class="content-main">
-  <section class="homepage-section" id="faculty">
-    <div class="section-heading">
-      <h2>Faculty</h2>
-    </div>
-    <div class="people-grid">
-      {% for person in people.faculty %}
-        {% set person = person %}
-        {% include "components/person-card.njk" %}
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="homepage-section" id="students">
-    <div class="section-heading">
-      <h2>Students</h2>
-    </div>
-    <div class="people-grid">
-      {% for person in people.students %}
-        {% set person = person %}
-        {% include "components/person-card.njk" %}
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="homepage-section" id="affiliates">
-    <div class="section-heading">
-      <h2>Affiliates</h2>
-    </div>
-    <div class="people-grid">
-      {% for person in people.affiliates %}
-        {% set person = person %}
-        {% include "components/person-card.njk" %}
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="homepage-section" id="alumni">
-    <div class="section-heading">
-      <h2>Alumni</h2>
-    </div>
-    <div class="alumni-list">
-      {% for person in people.alumni %}
-        <article class="alumni-item">
-          <p class="alumni-name">
-            {% if person.website %}
-              <a href="{{ person.website }}" {% if person.website | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>{{ person.name }}</a>
-            {% else %}
-              {{ person.name }}
-            {% endif %}
-          </p>
-          <p class="alumni-year">{{ person.graduation_year }}</p>
-          {% if person.current_job %}
-            <p class="alumni-job">{{ person.current_job }}</p>
+  <aside class="content-sidebar">
+    <section class="rail-card hero-news" id="news">
+      <div class="section-heading">
+        <h2>News</h2>
+      </div>
+      <div class="news-list">
+        {% for item in collections.newsItems %}
+          {% if loop.index <= site.newsHomepageCount %}
+            {% set item = item %}
+            {% include "components/news-item.njk" %}
           {% endif %}
-        </article>
-      {% endfor %}
-    </div>
-  </section>
+        {% endfor %}
+      </div>
+      <a class="text-link" href="{{ '/news/' | siteUrl }}">All news</a>
+    </section>
+  </aside>
 </section>

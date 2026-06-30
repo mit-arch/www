@@ -122,15 +122,7 @@ a,
   text-underline-offset: 0.18rem;
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.95fr);
-  gap: 1.5rem;
-  align-items: stretch;
-  margin-bottom: 2rem;
-}
-
-.hero-copy,
+.intro-panel,
 .rail-card,
 .archive-card,
 .news-item {
@@ -139,9 +131,6 @@ a,
   background: var(--paper);
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
-}
-
-.hero-copy {
   padding: 2.5rem;
 }
 
@@ -188,9 +177,21 @@ p {
   font-size: 1.1rem;
 }
 
-.content-main {
+.home-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.9fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.content-main,
+.content-sidebar {
   display: grid;
   gap: 1.5rem;
+}
+
+.intro-panel {
+  max-width: 760px;
 }
 
 .homepage-section,
@@ -256,18 +257,15 @@ p {
 
 .alumni-list {
   display: grid;
-  gap: 0.7rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem 1.5rem;
 }
 
 .alumni-item {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) 90px minmax(0, 1.2fr);
-  gap: 1rem;
-  align-items: baseline;
-  padding: 0.5rem 0;
+  padding: 0.3rem 0;
 }
 
-.alumni-name,
+.alumni-line,
 .alumni-year,
 .alumni-job {
   line-height: 1.4;
@@ -278,10 +276,21 @@ p {
   color: var(--muted);
 }
 
+.alumni-separator,
+.alumni-job {
+  color: var(--muted);
+}
+
+.content-sidebar {
+  position: sticky;
+  top: 1rem;
+}
+
 .hero-news {
   align-content: start;
   gap: 1.1rem;
   padding: 1.5rem 1.5rem 1.35rem;
+  width: 100%;
 }
 
 .hero-news .section-heading h2 {
@@ -343,11 +352,9 @@ p {
   background: transparent;
   box-shadow: none;
   border-radius: 0;
-  padding: 1rem 0 0;
+  padding: 0.8rem 0;
+  border: 0;
   border-top: 1px solid var(--line);
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 0;
 }
 
 .hero-news .news-item:first-child {
@@ -407,12 +414,17 @@ p {
     padding-top: 0.2rem;
   }
 
-  .hero {
+  .home-layout {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .hero-copy {
+  .content-sidebar {
+    position: static;
+  }
+
+  .intro-panel {
+    max-width: none;
     padding: 2rem;
   }
 
@@ -426,12 +438,7 @@ p {
   }
 
   .alumni-item {
-    grid-template-columns: minmax(0, 1fr) 80px;
-    gap: 0.35rem 1rem;
-  }
-
-  .alumni-job {
-    grid-column: 1 / -1;
+    padding: 0.2rem 0;
   }
 }
 
@@ -444,16 +451,18 @@ p {
   .site-header,
   .site-footer {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .site-header {
     gap: 0.75rem;
     padding-bottom: 1rem;
+    text-align: center;
   }
 
   .wordmark {
     gap: 0.45rem;
+    justify-content: center;
   }
 
   .wordmark-mit,
@@ -464,9 +473,11 @@ p {
   .site-nav {
     font-size: 0.9rem;
     gap: 0.6rem 0.9rem;
+    justify-content: center;
   }
 
   .hero-copy,
+  .intro-panel,
   .hero-news,
   .archive-card,
   .news-item {
@@ -500,6 +511,11 @@ p {
 
   .person-name {
     font-size: 1rem;
+  }
+
+  .alumni-list {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 
   .alumni-item {
