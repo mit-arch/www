@@ -1,6 +1,6 @@
 # Deployment
 
-This repository includes GitHub Pages deployment plumbing for a generic Eleventy site.
+This repository includes GitHub Pages deployment plumbing for the Eleventy site.
 
 Assumptions:
 
@@ -10,11 +10,12 @@ Assumptions:
 
 GitHub repository settings:
 
-1. The workflow is configured to enable GitHub Pages automatically on first run.
-2. If your organization restricts that API call, enable Pages manually in `Settings > Pages` and set `Source` to `GitHub Actions`.
-3. Keep the deployment branch as `main` unless you also update the workflow trigger.
+1. In `Settings > Pages`, set `Source` to `Deploy from a branch`.
+2. Set the branch to `gh-pages` and the folder to `/ (root)`.
+3. Keep the workflow trigger on `main` unless you also change `.github/workflows/deploy-github-pages.yml`.
 
 Notes:
 
 - The workflow runs on pushes to `main` and on manual dispatch.
-- If the project uses a different package manager, build command, or output directory, update `.github/workflows/deploy-github-pages.yml` to match the actual site setup.
+- The workflow publishes the built `dist/` directory to the `gh-pages` branch.
+- This branch-based deployment avoids the GitHub Pages provisioning API, which is often blocked for organization repositories.
