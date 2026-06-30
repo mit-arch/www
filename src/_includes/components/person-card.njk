@@ -9,7 +9,7 @@
     <img class="person-portrait" src="{{ imagePath | siteUrl }}" alt="Portrait of {{ person.name }}">
   {% endif %}
   <div class="person-copy">
-    <h3>
+    <h3 class="person-name">
       {% if href %}
         <a href="{{ href }}" {% if href | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>{{ person.name }}</a>
       {% else %}
