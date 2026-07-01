@@ -1,4 +1,4 @@
-const basePath = process.env.SITE_BASE_PATH || "/mit-arch";
+const basePath = process.env.SITE_BASE_PATH || "/www";
 
 module.exports = {
   title: "MIT Architecture Research Group",
