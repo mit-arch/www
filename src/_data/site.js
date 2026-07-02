@@ -1,18 +1,18 @@
-const basePath = process.env.SITE_BASE_PATH || "/www";
+const basePath = process.env.SITE_BASE_PATH;
 
 module.exports = {
   title: "MIT Architecture Research Group",
-  shortTitle: "MIT AR",
+  shortTitle: "MIT ARCH",
   basePath,
   description:
     "Research in computer architecture, systems, compilers, and hardware-software co-design.",
-  groupName: "MIT Architecture Research Group",
+  groupName: "MIT ARCH Group",
   location: "Massachusetts Institute of Technology",
   hero: {
-    eyebrow: "MIT Architecture Research",
-    title: "Computer architecture research across systems, silicon, and the software stack.",
+    eyebrow: "MIT ARCH",
+    title: "Computer architecture research.",
     body:
-      "The MIT Architecture Research Group brings together faculty, students, and affiliates working on efficient computing systems, accelerators, memory hierarchies, compilers, and hardware-software co-design."
+      "The MIT Architecture Group has been designing state of the art tools and systems across the hardware, software, and system abstractions for six decades."
   },
   newsHomepageCount: 4,
   currentSeminarTerm: "spring-2026",
