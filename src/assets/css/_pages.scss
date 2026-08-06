@@ -141,27 +141,13 @@
   text-transform: uppercase;
 }
 
-// Room number gets its own aligned column instead of being concatenated into a
-// run of uppercase micro-text with the time, format, and host.
-.schedule-where {
-  width: 8rem;
-  font-family: var(--font-mono);
+// The last column is who invited the speaker — the only per-talk fact that used
+// to share this cell with the time, room, and format, all of which are constant
+// across a term and now live in the schedule note above the table.
+.schedule-host {
+  width: 9rem;
   font-size: var(--fs-xs);
   color: var(--steel);
-  white-space: nowrap;
-}
-
-.schedule-room {
-  display: block;
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.schedule-host {
-  display: block;
-  margin-top: var(--sp-1);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.04em;
 }
 
 // Weeks with no talk stay on the schedule but recede from it.
@@ -307,7 +293,8 @@
     border-top: 0;
   }
 
-  .schedule-where::before,
+  // Most talks have no host, and an empty cell should not get a HOST label.
+  .schedule-host:not(:empty)::before,
   .schedule-speaker::before {
     content: attr(data-label);
     display: block;
@@ -320,15 +307,6 @@
     margin-bottom: var(--sp-1);
   }
 
-  .schedule-room,
-  .schedule-where {
-    display: inline;
-  }
-
-  .schedule-host {
-    display: block;
-    margin-top: var(--sp-1);
-  }
 }
 
 // Two readable columns need about 900px. Below that the band stacks, and

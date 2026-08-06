@@ -9,7 +9,7 @@
         <th scope="col">Date</th>
         <th scope="col">Speaker</th>
         <th scope="col">Talk</th>
-        <th scope="col">Where</th>
+        <th scope="col">Host</th>
       </tr>
     </thead>
     <tbody>
@@ -35,12 +35,13 @@
                 </p>
               {% endif %}
             </td>
-            <td class="schedule-where" data-label="Where">
-              {% if talk.location %}<span class="schedule-room">{{ talk.location }}</span>{% endif %}
-              {% if talk.time %}{{ talk.time }}{% endif %}
-              {% if talk.format %}<span class="schedule-host">{{ talk.format }}</span>{% endif %}
-              {% if talk.host %}<span class="schedule-host">Host: {{ talk.host }}</span>{% endif %}
-            </td>
+            {# Time, room, and format are the same for every talk in a term, so
+               they are stated once in the term's schedule_note above the table
+               rather than repeated down a column. The fields stay in the YAML
+               because the .ics feed still writes them into each event. #}
+            {# Rendered with no whitespace so a talk with no host leaves a truly
+               empty cell, which the mobile reflow can skip labelling. #}
+            <td class="schedule-host"{% if talk.host %} data-label="Host"{% endif %}>{% if talk.host %}{{ talk.host }}{% endif %}</td>
           {% endif %}
         </tr>
       {% endfor %}
