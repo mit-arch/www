@@ -375,47 +375,22 @@ a:hover {
   margin-top: 0.15em;
 }
 
-.record-list {
+.term-list {
+  list-style: none;
+  padding-inline-start: 0;
   display: grid;
+  gap: var(--sp-3);
 }
 
-.record {
-  display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
-  gap: var(--sp-3) var(--sp-5);
-  padding-block: var(--sp-4);
-  border-top: 1px solid var(--rule);
-}
-
-.record:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.record-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--sp-2);
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--steel);
-}
-
-.record-copy {
-  font-size: var(--fs-sm);
-  line-height: 1.6;
-}
-
-.record-copy > * + * {
-  margin-top: var(--sp-2);
-}
-
-.record-title {
-  font-size: var(--fs-md);
+.term-list a {
+  font-size: var(--fs-lg);
   font-weight: 700;
+  text-decoration: none;
+}
+
+.term-list a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .alumni-list {
@@ -547,10 +522,6 @@ a:hover {
 }
 
 @media (max-width: 760px) {
-  .record {
-    grid-template-columns: 1fr;
-    gap: var(--sp-2);
-  }
   .alumni-row {
     grid-template-columns: 3.5rem minmax(0, 1fr);
     gap: var(--sp-1) var(--sp-3);

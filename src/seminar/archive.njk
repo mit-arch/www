@@ -6,33 +6,20 @@ description: Archived seminar terms
 <section class="page-head wrap">
   <p class="page-eyebrow">Seminar</p>
   <h1 class="page-title">Archive</h1>
-  <p class="page-intro">Past terms remain available as stand-alone schedule pages.</p>
+  <p class="page-intro">Previous Architecture Seminars</p>
 </section>
 
-{# Ruled rows rather than cards. The old .archive-card inherited uppercase and
-   letter-spacing from a shared micro-text rule, which set each term's whole
-   description sentence in 12px capitals. #}
-<div class="wrap">
-  <div class="record-list">
+{# Nothing but the terms. The talk count and the standing slot (`schedule_note`,
+   the "Fridays · 1:00 PM · 34-401" line) both belong on the term page itself —
+   here they were metadata about a link, which is not something anyone reads
+   before clicking it. Newest term first, per the seminarTerms sort. #}
+<div class="wrap section-body">
+  {# role="list" restores the semantics Safari drops when list-style is none. #}
+  <ul class="term-list" role="list">
     {% for term in seminarTerms %}
       {% if term.slug != currentSeminar.slug %}
-        <article class="record">
-          <div class="record-meta">
-            <span>{{ term.talks.length }} talk{% if term.talks.length != 1 %}s{% endif %}</span>
-          </div>
-          <div class="record-copy">
-            <p class="record-title">
-              <a href="{{ ('/seminar/' + term.slug + '/') | siteUrl }}">{{ term.label }}</a>
-            </p>
-            {% if term.description %}<p>{{ term.description }}</p>{% endif %}
-          </div>
-        </article>
+        <li><a href="{{ ('/seminar/' + term.slug + '/') | siteUrl }}">{{ term.label }}</a></li>
       {% endif %}
     {% endfor %}
-  </div>
-
-  <p class="link-row">
-    <a href="{{ '/seminar/' | siteUrl }}">Current term</a>
-    <a href="{{ '/seminar/all.ics' | siteUrl }}">Subscribe to calendar</a>
-  </p>
+  </ul>
 </div>
