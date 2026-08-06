@@ -6,66 +6,111 @@ METHOD:PUBLISH
 X-WR-CALNAME:MIT Architecture Research Group Seminar
 X-WR-CALDESC:All seminar talks across MIT Architecture Research Group terms
 BEGIN:VEVENT
-UID:fall-2025-1-priya-narasimhan@mit-arch
-DTSTAMP:20260702T012200Z
-DTSTART:20250918T160000
-DTEND:20250918T170000
-SUMMARY:Priya Narasimhan: Co-Designing Inference Accelerators for Rapidly Evolving Models
-DESCRIPTION:Priya Narasimhan\, AMD Research\nTerm: Fall 2025\nTheme: Accelerators\, Memory Systems\, and Efficient Compute\nFormat: In person\nAbstract: Lessons from deploying accelerator designs that must keep pace with changing model operators\, memory access patterns\, and serving constraints.
-LOCATION:32-G449
-END:VEVENT
-BEGIN:VEVENT
-UID:fall-2025-2-mateo-alvarez@mit-arch
-DTSTAMP:20260702T012200Z
-DTSTART:20251009T160000
-DTEND:20251009T170000
-SUMMARY:Mateo Alvarez: Smarter Memory Systems for Irregular Parallel Workloads
-DESCRIPTION:Mateo Alvarez\, University of Michigan\nTerm: Fall 2025\nTheme: Accelerators\, Memory Systems\, and Efficient Compute\nFormat: Hybrid\nAbstract: Architectural support for reducing tail latency and improving bandwidth efficiency in graph analytics and sparse tensor codes.
-LOCATION:32-G449
-END:VEVENT
-BEGIN:VEVENT
-UID:fall-2025-3-aisha-green@mit-arch
-DTSTAMP:20260702T012200Z
-DTSTART:20251106T160000
-DTEND:20251106T170000
-SUMMARY:Aisha Green: Warehouse-Scale Scheduling Meets Architecture
-DESCRIPTION:Aisha Green\, Google\nTerm: Fall 2025\nTheme: Accelerators\, Memory Systems\, and Efficient Compute\nFormat: Zoom\nAbstract: Cross-layer opportunities between cluster schedulers and node-level architecture for training and serving large models.
-LOCATION:32-G449
-END:VEVENT
-BEGIN:VEVENT
-UID:spring-2026-1-elena-petrov@mit-arch
-DTSTAMP:20260702T012200Z
-DTSTART:20260213T130000
-DTEND:20260213T140000
-SUMMARY:Elena Petrov: Compiler-Guided Locality Management for Disaggregated Memory
-DESCRIPTION:Elena Petrov\, ETH Zurich\nTerm: Spring 2026\nTheme: Hardware-Software Co-Design for Modern Systems\nFormat: Hybrid\nAbstract: New approaches for orchestrating data placement and movement when memory is no longer tightly coupled to a single compute node.
+UID:spring-2026-1-rachit-nigam@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260220T130000
+DTEND:20260220T140000
+SUMMARY:Rachit Nigam: Kick-off!
+DESCRIPTION:Rachit Nigam\, MIT\nTerm: Spring 2026
 LOCATION:34-401
 END:VEVENT
 BEGIN:VEVENT
-UID:spring-2026-2-marcus-bell@mit-arch
-DTSTAMP:20260702T012200Z
-DTSTART:20260306T130000
-DTEND:20260306T140000
-SUMMARY:Marcus Bell: Simulation Infrastructure for Fast Accelerator Design Iteration
-DESCRIPTION:Marcus Bell\, NVIDIA Research\nTerm: Spring 2026\nTheme: Hardware-Software Co-Design for Modern Systems\nFormat: In person\nAbstract: Building simulation stacks that preserve enough fidelity for architecture research without slowing down iteration to a crawl.
+UID:spring-2026-2-yonathan-fisseha@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260227T130000
+DTEND:20260227T140000
+SUMMARY:Yonathan Fisseha: End-to-End Formal Security Guarantees for Low-Trust Architectures
+DESCRIPTION:Yonathan Fisseha\, University of Michigan\nTerm: Spring 2026
 LOCATION:34-401
 END:VEVENT
 BEGIN:VEVENT
-UID:spring-2026-3-farah-nasser@mit-arch
-DTSTAMP:20260702T012200Z
+UID:spring-2026-4-jianming-tong@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260313T130000
+DTEND:20260313T140000
+SUMMARY:Jianming Tong: Enabling AI ASICs for Cryptography Primitives
+DESCRIPTION:Jianming Tong\, Georgia Tech\nTerm: Spring 2026
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-5-xingran-du@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260320T130000
+DTEND:20260320T140000
+SUMMARY:Xingran Du: Accelerating Automata Processing
+DESCRIPTION:Xingran Du\, MIT\nTerm: Spring 2026
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-7-courtney-golden@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260403T130000
+DTEND:20260403T140000
+SUMMARY:Courtney Golden: Quartz: A Reconfigurable\, Distributed-Memory Accelerator for Sparse Applications
+DESCRIPTION:Courtney Golden\, MIT\nTerm: Spring 2026
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-8-joonhyup@mit-arch
+DTSTAMP:20260806T170703Z
 DTSTART:20260410T130000
 DTEND:20260410T140000
-SUMMARY:Farah Nasser: Rethinking On-Chip Networks for Multi-Tenant AI Systems
-DESCRIPTION:Farah Nasser\, University of Toronto\nTerm: Spring 2026\nTheme: Hardware-Software Co-Design for Modern Systems\nFormat: Zoom\nAbstract: How contention isolation and topology choices interact when accelerators are shared across jobs with different performance goals.
+SUMMARY:Joonhyup: TBD
+DESCRIPTION:Joonhyup\, MIT\nTerm: Spring 2026
 LOCATION:34-401
 END:VEVENT
 BEGIN:VEVENT
-UID:spring-2026-4-julian-park@mit-arch
-DTSTAMP:20260702T012200Z
+UID:spring-2026-9-elam-day-friedland@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260417T130000
+DTEND:20260417T140000
+SUMMARY:Elam Day-Friedland: TBD
+DESCRIPTION:Elam Day-Friedland\, MIT\nTerm: Spring 2026
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-11-christos-zarkos@mit-arch
+DTSTAMP:20260806T170703Z
 DTSTART:20260501T130000
 DTEND:20260501T140000
-SUMMARY:Julian Park: Cross-Layer Power Management for Latency-Critical Services
-DESCRIPTION:Julian Park\, Princeton University\nTerm: Spring 2026\nTheme: Hardware-Software Co-Design for Modern Systems\nFormat: In person\nAbstract: Coordinating software control loops and hardware power states to reduce energy use without violating tail-latency targets.
+SUMMARY:Christos Zarkos: TBD
+DESCRIPTION:Christos Zarkos\, MIT\nTerm: Spring 2026
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-12-peter-deutsch@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260508T130000
+DTEND:20260508T140000
+SUMMARY:Peter Deutsch: Understanding Architectural Vulnerability to Hardware Fault
+DESCRIPTION:Peter Deutsch\, MIT\nTerm: Spring 2026
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-13-varun-gohil@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260515T130000
+DTEND:20260515T140000
+SUMMARY:Varun Gohil: Building Resilient ML-Based Computer Systems by Embracing Uncertainty
+DESCRIPTION:Varun Gohil\, MIT\nTerm: Spring 2026
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-14-jing-li@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260522T130000
+DTEND:20260522T140000
+SUMMARY:Jing Li: Liquid Machine: A 15-year Journey Towards Software-Defined Everything
+DESCRIPTION:Jing Li\nTerm: Spring 2026
+LOCATION:34-401
+END:VEVENT
+BEGIN:VEVENT
+UID:spring-2026-15-sridevi@mit-arch
+DTSTAMP:20260806T170703Z
+DTSTART:20260529T130000
+DTEND:20260529T140000
+SUMMARY:Sridevi: TBD
+DESCRIPTION:Sridevi\nTerm: Spring 2026
 LOCATION:34-401
 END:VEVENT
 END:VCALENDAR
