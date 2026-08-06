@@ -160,17 +160,6 @@
   color: var(--steel);
 }
 
-.tag {
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--crimson);
-  border: 1px solid currentColor;
-  padding: 0.1em 0.5em;
-  white-space: nowrap;
-}
-
 // --------------------------------------------------------------- machines
 
 // The signature element. No JavaScript: detail is revealed by :hover and

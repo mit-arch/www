@@ -4,7 +4,7 @@ title: Home
 description: MIT Architecture Research group homepage
 ---
 {% from "components/person-card.njk" import personCard %}
-{% from "components/news-item.njk" import newsRow %}
+{% from "components/news-item.njk" import newsLedger %}
 {% from "components/machine-timeline.njk" import machineAxis %}
 
 <section class="hero wrap">
@@ -24,13 +24,8 @@ description: MIT Architecture Research group homepage
     </span>
   </h2>
   <div class="wrap section-body">
-    <div class="news-strip">
-      {% for item in collections.newsItems %}
-        {% if loop.index <= site.newsHomepageCount %}
-          {{ newsRow(item) }}
-        {% endif %}
-      {% endfor %}
-    </div>
+    {# Same ledger as /news/, truncated to the most recent few. #}
+    {{ newsLedger(collections.newsItems.slice(0, site.newsHomepageCount), "Recent news") }}
   </div>
 </section>
 

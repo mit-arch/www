@@ -454,17 +454,6 @@ a:hover {
   color: var(--steel);
 }
 
-.tag {
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--crimson);
-  border: 1px solid currentColor;
-  padding: 0.1em 0.5em;
-  white-space: nowrap;
-}
-
 .machines {
   position: relative;
   margin-top: var(--sp-7);
@@ -659,24 +648,6 @@ a:hover {
   font-weight: 400;
 }
 
-.news-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--sp-5);
-}
-
-.news-strip .record {
-  grid-template-columns: 1fr;
-  gap: var(--sp-2);
-  padding-block: var(--sp-3) 0;
-  border-top: 2px solid var(--ink);
-}
-
-.news-strip .record:first-child {
-  padding-top: var(--sp-3);
-  border-top: 2px solid var(--ink);
-}
-
 .band-link {
   color: inherit;
   font-family: var(--font-mono);
@@ -700,13 +671,13 @@ a:hover {
   color: var(--steel);
 }
 
-.schedule {
+.data-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
 }
 
-.schedule thead th {
+.data-table thead th {
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
   font-weight: 600;
@@ -718,7 +689,7 @@ a:hover {
   white-space: nowrap;
 }
 
-.schedule tbody td {
+.data-table tbody td {
   padding: var(--sp-4) var(--sp-3);
   border-top: 1px solid var(--rule);
   vertical-align: top;
@@ -809,6 +780,30 @@ a:hover {
   white-space: nowrap;
 }
 
+.ledger-date {
+  width: 10rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--steel);
+  white-space: nowrap;
+}
+
+.ledger-kind {
+  width: 12rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+
+.ledger-item {
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+}
+
 .link-row {
   display: flex;
   flex-wrap: wrap;
@@ -821,34 +816,38 @@ a:hover {
 }
 
 @media (max-width: 760px) {
-  .news-strip {
-    grid-template-columns: 1fr;
-    gap: var(--sp-4);
-  }
-  .schedule thead {
+  .data-table thead {
     position: absolute;
     width: 1px;
     height: 1px;
     overflow: hidden;
     clip-path: inset(50%);
   }
-  .schedule,
-  .schedule tbody,
-  .schedule tr,
-  .schedule tbody td {
+  .data-table,
+  .data-table tbody,
+  .data-table tr,
+  .data-table tbody td {
     display: block;
     width: auto;
   }
-  .schedule tr {
+  .data-table tr {
     padding-block: var(--sp-4);
     border-top: 1px solid var(--rule);
   }
-  .schedule tbody td {
+  .data-table tbody td {
     padding: 0;
     border-top: 0;
   }
-  .schedule tbody td + td {
+  .data-table tbody td + td {
     margin-top: var(--sp-2);
+  }
+  .data-table .ledger-date,
+  .data-table .ledger-kind {
+    display: inline-block;
+    margin-top: 0;
+  }
+  .data-table .ledger-kind {
+    margin-left: var(--sp-3);
   }
   .schedule-where::before,
   .schedule-speaker::before {

@@ -41,28 +41,6 @@
   font-weight: 400;
 }
 
-// ------------------------------------------------------------- news strip
-
-// Three across on the homepage, directly under the hero. The old build put
-// news in a sticky right rail that fell below 45 people on every narrow screen.
-.news-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--sp-5);
-}
-
-.news-strip .record {
-  grid-template-columns: 1fr;
-  gap: var(--sp-2);
-  padding-block: var(--sp-3) 0;
-  border-top: 2px solid var(--ink);
-}
-
-.news-strip .record:first-child {
-  padding-top: var(--sp-3);
-  border-top: 2px solid var(--ink);
-}
-
 .band-link {
   color: inherit;
   font-family: var(--font-mono);
@@ -88,13 +66,15 @@
   color: var(--steel);
 }
 
-.schedule {
+// Shared base for the two tabular views on the site: the seminar schedule and
+// the news ledger. Column widths live on the per-table classes below.
+.data-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
 }
 
-.schedule thead th {
+.data-table thead th {
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
   font-weight: 600;
@@ -106,7 +86,7 @@
   white-space: nowrap;
 }
 
-.schedule tbody td {
+.data-table tbody td {
   padding: var(--sp-4) var(--sp-3);
   border-top: 1px solid var(--rule);
   vertical-align: top;
@@ -200,6 +180,32 @@
   white-space: nowrap;
 }
 
+// ------------------------------------------------------------ news ledger
+
+.ledger-date {
+  width: 10rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--steel);
+  white-space: nowrap;
+}
+
+.ledger-kind {
+  width: 12rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+
+.ledger-item {
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+}
+
 .link-row {
   display: flex;
   flex-wrap: wrap;
@@ -216,12 +222,7 @@
 // becomes a block whose cells carry their own labels.
 
 @media (max-width: 760px) {
-  .news-strip {
-    grid-template-columns: 1fr;
-    gap: var(--sp-4);
-  }
-
-  .schedule thead {
+  .data-table thead {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -229,26 +230,38 @@
     clip-path: inset(50%);
   }
 
-  .schedule,
-  .schedule tbody,
-  .schedule tr,
-  .schedule tbody td {
+  .data-table,
+  .data-table tbody,
+  .data-table tr,
+  .data-table tbody td {
     display: block;
     width: auto;
   }
 
-  .schedule tr {
+  .data-table tr {
     padding-block: var(--sp-4);
     border-top: 1px solid var(--rule);
   }
 
-  .schedule tbody td {
+  .data-table tbody td {
     padding: 0;
     border-top: 0;
   }
 
-  .schedule tbody td + td {
+  .data-table tbody td + td {
     margin-top: var(--sp-2);
+  }
+
+  // Date and kind read as one meta line above the item. These need to outrank
+  // the `td + td { margin-top }` rule above, which would otherwise stack them.
+  .data-table .ledger-date,
+  .data-table .ledger-kind {
+    display: inline-block;
+    margin-top: 0;
+  }
+
+  .data-table .ledger-kind {
+    margin-left: var(--sp-3);
   }
 
   .schedule-where::before,

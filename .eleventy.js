@@ -38,6 +38,22 @@ module.exports = function (eleventyConfig) {
     }).format(date);
   });
 
+  // News is dated by month, not by day — the day a paper was accepted carries
+  // no information a reader uses. The <time datetime> attribute still holds the
+  // full calendar date.
+  eleventyConfig.addFilter("monthYear", (value) => {
+    if (!value) {
+      return "";
+    }
+
+    const date = value instanceof Date ? value : new Date(value);
+    return new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC"
+    }).format(date);
+  });
+
   // Machine-readable half of every <time> element. Calendar days are parsed at
   // UTC midnight, so slicing the ISO string cannot drift a day.
   eleventyConfig.addFilter("isoDate", (value) => {
@@ -47,24 +63,6 @@ module.exports = function (eleventyConfig) {
 
     const date = value instanceof Date ? value : new Date(value);
     return Number.isNaN(date.getTime()) ? "" : date.toISOString().slice(0, 10);
-  });
-
-  // News is read newest-first, so the years come out descending already.
-  eleventyConfig.addFilter("byYear", (items) => {
-    const groups = new Map();
-
-    (items || []).forEach((item) => {
-      const date = item.date instanceof Date ? item.date : new Date(item.date);
-      const year = String(date.getUTCFullYear());
-
-      if (!groups.has(year)) {
-        groups.set(year, []);
-      }
-
-      groups.get(year).push(item);
-    });
-
-    return [...groups.entries()].map(([year, entries]) => ({ year, items: entries }));
   });
 
   eleventyConfig.addFilter("seminarDate", (value) => {

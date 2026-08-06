@@ -2,7 +2,7 @@
    Below 760px the CSS hides the header row and each <tr> reflows to a block
    whose cells carry their own labels via data-label. #}
 {% macro schedule(term) %}
-  <table class="schedule">
+  <table class="data-table schedule">
     <caption class="visually-hidden">{{ term.label }} seminar schedule</caption>
     <thead>
       <tr>
