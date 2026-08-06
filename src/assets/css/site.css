@@ -466,10 +466,6 @@ a:hover {
   padding-right: var(--sp-2);
 }
 
-.hero-rail .more-link {
-  padding-left: calc(3.75rem + var(--sp-2));
-}
-
 .hero-eyebrow {
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
@@ -653,19 +649,12 @@ a:hover {
 
 .more-link {
   margin-top: var(--sp-4);
-  padding-left: calc(6rem + var(--sp-3));
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-@media (max-width: 760px) {
-  .more-link,
-  .hero-rail .more-link {
-    padding-left: 0;
-  }
-}
 .link-row {
   display: flex;
   flex-wrap: wrap;
@@ -751,9 +740,6 @@ a:hover {
   .hero-rail .ledger-date {
     width: 6rem;
     padding-right: var(--sp-3);
-  }
-  .hero-rail .more-link {
-    padding-left: calc(6rem + var(--sp-3));
   }
 }
 @media (max-width: 520px) {

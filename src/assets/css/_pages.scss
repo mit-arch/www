@@ -33,10 +33,6 @@
   padding-right: var(--sp-2);
 }
 
-.hero-rail .more-link {
-  padding-left: calc(3.75rem + var(--sp-2));
-}
-
 .hero-eyebrow {
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
@@ -240,26 +236,14 @@
   max-width: 78ch;
 }
 
-// Continues the list above it, so it aligns with the item column rather than
-// the date gutter.
+// Flush with the ledger's left edge, which is where the dates start. No
+// padding at any width, so there is nothing to reset when the table reflows.
 .more-link {
   margin-top: var(--sp-4);
-  // Date column width plus the item cell's own left padding, so the link starts
-  // on the same edge as the item text.
-  padding-left: calc(6rem + var(--sp-3));
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-// The ledger stops being a table here, so there is no date gutter to align to.
-// `.hero-rail .more-link` is (0,2,0), so the reset has to match that weight.
-@media (max-width: 760px) {
-  .more-link,
-  .hero-rail .more-link {
-    padding-left: 0;
-  }
 }
 
 .link-row {
@@ -364,17 +348,14 @@
 }
 
 // Full width but still a table: the date gets its normal gutter back. Bounded
-// below at 761 because under 760 the ledger reflows to blocks and there is no
-// gutter to align to — and this block sits after that one in source order, so
-// an unbounded rule here would win at phone widths.
+// below at 761 because under 760 the ledger stops being a table — cells go
+// display:block and width:auto — and a fixed column width there is meaningless.
+// This block also sits after that one in source order, so an unbounded rule
+// here would outrank it at phone widths.
 @media (max-width: 900px) and (min-width: 761px) {
   .hero-rail .ledger-date {
     width: 6rem;
     padding-right: var(--sp-3);
-  }
-
-  .hero-rail .more-link {
-    padding-left: calc(6rem + var(--sp-3));
   }
 }
 
