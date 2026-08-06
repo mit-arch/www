@@ -1,12 +1,25 @@
-<article class="news-item">
-  <div class="news-meta">
-    <span>{{ item.date | readableDate }}</span>
-    {% if item.data.kind %}
-      <span class="news-meta-separator">&middot;</span>
-      <span>{{ item.data.kind }}</span>
-    {% endif %}
-  </div>
-  <div class="news-copy">
-    {{ item.content | safe }}
-  </div>
-</article>
+{# newsLedger(items, caption) — news as a dated ledger: one mono date column,
+   one item column, hairline between rows.
+
+   No header row and no kind column. With two columns, a header row labels what
+   the rows already make obvious, and it put a second ink bar directly beneath
+   the section band. The `kind` field is still carried in each item's front
+   matter but is not rendered: the item text already says whether it is a paper,
+   an award, or a talk. The visually-hidden caption keeps the table announced.
+
+   Dates show month and year only: the day a paper was accepted is not
+   something a reader uses. The <time datetime> attribute still carries the
+   full calendar date for machines. #}
+{% macro newsLedger(items, caption) %}
+  <table class="data-table ledger">
+    <caption class="visually-hidden">{{ caption }}</caption>
+    <tbody>
+      {% for item in items %}
+        <tr>
+          <td class="ledger-date"><time datetime="{{ item.date | isoDate }}">{{ item.date | monthYear }}</time></td>
+          <td class="ledger-item">{{ item.content | safe }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endmacro %}

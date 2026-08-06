@@ -1,0 +1,158 @@
+// ------------------------------------------------------------------ people
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: var(--sp-4) var(--sp-6);
+}
+
+.person {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+// Squares, not circles: the rest of the page is built from rectangles and
+// hairlines, and a round portrait is the one shape that fights that.
+.person-portrait {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  background: #e6e5e1;
+  border: 1px solid var(--rule);
+}
+
+.person-link {
+  display: block;
+  line-height: 0;
+  text-decoration: none;
+}
+
+// Faculty and affiliates have real photographs and are the people a visitor is
+// most often looking for, so they get the larger portrait. Students keep the
+// compact size — there are thirty of them.
+.people-grid--lg {
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+}
+
+.people-grid--lg .person {
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: var(--sp-4);
+}
+
+.people-grid--lg .person-portrait {
+  width: 96px;
+  height: 96px;
+}
+
+.people-grid--lg .person-name {
+  font-size: var(--fs-md);
+}
+
+.person-name {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+// Every name in a 40-person roster is a link, so underlining them all is noise
+// rather than signal. The underline returns on hover, and the focus ring makes
+// them findable from the keyboard.
+.person-name a {
+  text-decoration: none;
+}
+
+.person-name a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.person-title {
+  font-size: var(--fs-xs);
+  line-height: 1.4;
+  color: var(--steel);
+  margin-top: 0.15em;
+}
+
+// -------------------------------------------------------------- term list
+
+// The seminar archive, and nothing else on the site: a column of term names,
+// each one a link to its schedule. No meta gutter, no rules — with one word
+// and a year per row there is nothing to align against and nothing to separate.
+.term-list {
+  list-style: none;
+  // `list-style: none` leaves the UA's padding-inline-start behind, which
+  // indents the whole column off the measure.
+  padding-inline-start: 0;
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.term-list a {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.term-list a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+// ------------------------------------------------------------------ alumni
+
+// One line per person: year, name, where they went. A full record row gave each
+// alumnus three lines and far more vertical space than the content earns.
+.alumni-list {
+  display: grid;
+}
+
+.alumni-row {
+  display: grid;
+  grid-template-columns: 4rem minmax(8rem, 16rem) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-4);
+  padding-block: var(--sp-3);
+  border-top: 1px solid var(--rule);
+  font-size: var(--fs-sm);
+}
+
+.alumni-row:first-child {
+  border-top: 0;
+}
+
+.alumni-year {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
+  color: var(--steel);
+}
+
+.alumni-name {
+  font-weight: 700;
+}
+
+.alumni-job {
+  color: var(--steel);
+}
+
+@media (max-width: 760px) {
+  // Year stays on the name's line; only the destination drops below.
+  .alumni-row {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: var(--sp-1) var(--sp-3);
+  }
+
+  .alumni-job {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .people-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+}

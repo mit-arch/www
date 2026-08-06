@@ -1,4 +1,7 @@
-@use "site-base" with (
-  $news-item-font-size: 0.92rem,
-  $news-item-line-height: 1.45
-);
+// Compiled by `npm run build:css` into site.css, which is what Eleventy copies.
+// Order matters: tokens defines the custom properties every other partial reads.
+@use "tokens";
+@use "base";
+@use "layout";
+@use "components";
+@use "pages";

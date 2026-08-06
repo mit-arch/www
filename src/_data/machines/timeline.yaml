@@ -1,0 +1,77 @@
+# Machines on the homepage timeline.
+#
+# CONVENTION: `year` is the publication year of the machine's defining paper,
+# applied uniformly. This is deliberate — build year and publication year differ
+# by 1-5 years for most of the older entries (Alewife first ran in May 1994 but
+# the ISCA paper is 1995), and publication year is the one fact that is
+# verifiable the same way for every machine on this list.
+#
+# `source` is REQUIRED. src/_data/machines.js throws at build time if any entry
+# is missing one, so an unsourced machine cannot ship by accident. Every year and
+# author list below was checked against the linked source, not recalled.
+#
+# Sources are primary: ACM DL / IEEE proceedings records, MIT DSpace, MIT CSAIL
+# group pages, or the published thesis. No Wikipedia, no secondary retrospectives.
+
+- year: 1985
+  name: Connection Machine
+  people: W. Daniel Hillis
+  venue: MIT Press
+  blurb: 65,536 one-bit processors wired as a twelve-dimensional hypercube, out of an MIT AI Lab dissertation.
+  source: https://mitpress.mit.edu/9780262580977/the-connection-machine/
+
+- year: 1990
+  name: Monsoon
+  people: Gregory Papadopoulos, David Culler
+  venue: ISCA 1990
+  blurb: Dataflow made buildable — an explicit token store replaced the associative matching hardware everyone assumed was necessary.
+  source: https://dl.acm.org/doi/10.1145/325164.325117
+
+- year: 1993
+  name: J-Machine
+  people: Michael Noakes, Deborah Wallach, William Dally
+  venue: ISCA 1993
+  blurb: Processors treated as jellybeans — cheap, plentiful, and wired into a three-dimensional mesh.
+  source: https://dl.acm.org/doi/10.1145/173682.165158
+
+- year: 1995
+  name: Alewife
+  people: Anant Agarwal and the CAG group
+  venue: ISCA 1995
+  blurb: Shared memory and message passing in one machine, with cache coherence handled partly in software.
+  source: https://dl.acm.org/doi/10.1145/223982.223985
+
+- year: 1997
+  name: Raw
+  people: Elliot Waingold, Anant Agarwal and the CAG group
+  venue: IEEE Computer
+  blurb: Exposed the wires to the compiler — identical tiles, with communication scheduled statically instead of dynamically.
+  source: https://groups.csail.mit.edu/cag/raw/documents/Waingold:Computer:1997.pdf
+
+- year: 2003
+  name: AEGIS
+  people: Edward Suh, Dwaine Clarke, Blaise Gassend, Marten van Dijk, Srini Devadas
+  venue: ICS 2003
+  blurb: A single chip that keeps computing correctly even when the board around it is hostile.
+  source: https://dl.acm.org/doi/10.1145/782814.782838
+
+- year: 2015
+  name: Swarm
+  people: Mark Jeffrey, Suvinay Subramanian, Cong Yan, Joel Emer, Daniel Sanchez
+  venue: MICRO 2015
+  blurb: Thousands of timestamped tasks speculated ahead of the oldest one, finding parallelism in programs that look strictly ordered.
+  source: https://dl.acm.org/doi/10.1145/2830772.2830777
+
+- year: 2016
+  name: Eyeriss
+  people: Yu-Hsin Chen, Tushar Krishna, Joel Emer, Vivienne Sze
+  venue: ISSCC 2016
+  blurb: A neural network accelerator designed around moving data less, rather than computing faster.
+  source: https://dspace.mit.edu/handle/1721.1/101151
+
+- year: 2022
+  name: CraterLake
+  people: Nikola Samardzic, Axel Feldmann, Srini Devadas, Daniel Sanchez and colleagues
+  venue: ISCA 2022
+  blurb: Fully homomorphic encryption at unbounded depth — computing on data the machine is never allowed to read.
+  source: https://dl.acm.org/doi/10.1145/3470496.3527393

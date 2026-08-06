@@ -1,0 +1,338 @@
+// -------------------------------------------------------------------- hero
+
+// Two columns: the statement, then a news rail on the right. Source order
+// matches visual order, so the stacked layout below the breakpoint needs no
+// reordering — it just drops to one column.
+// Proportional rather than a fixed rail width. A fixed 21rem rail left the
+// statement's column holding several hundred pixels its own text never used,
+// which read as a gap between the two rather than as breathing room.
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--sp-5);
+  align-items: start;
+  padding-block: var(--sp-8) var(--sp-8);
+}
+
+.rail-title {
+  // The one section heading that isn't in an ink band, so it borrows the band's
+  // register — Archivo 800, uppercase, tight tracking — a step down in size and
+  // in crimson rather than knocked out of ink.
+  font-size: var(--fs-md);
+  font-weight: 800;
+  font-stretch: 112%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: var(--sp-2);
+}
+
+// Beside the statement the date cannot afford the 6rem gutter it gets on the
+// news page; the item text needs those pixels back.
+.hero-rail .ledger-date {
+  width: 3.75rem;
+  padding-right: var(--sp-2);
+}
+
+// A step down from the full display size: the statement now shares its band
+// with the news rail rather than owning the viewport.
+.hero-title {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  font-stretch: 104%;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.hero-body {
+  max-width: 52ch;
+  margin-top: var(--sp-5);
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  color: var(--steel);
+}
+
+// --------------------------------------------------------- seminar table
+
+.schedule-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+  align-items: baseline;
+  margin-top: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+// Shared base for the two tabular views on the site: the seminar schedule and
+// the news ledger. Column widths live on the per-table classes below.
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table thead th {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--knockout);
+  background: var(--ink);
+  padding: var(--sp-2) var(--sp-3);
+  white-space: nowrap;
+}
+
+.data-table tbody td {
+  padding: var(--sp-4) var(--sp-3);
+  border-top: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.schedule-date {
+  width: 8.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--steel);
+  white-space: nowrap;
+}
+
+.schedule-speaker {
+  width: 15rem;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+}
+
+.schedule-affiliation {
+  display: block;
+  font-weight: 400;
+  font-size: var(--fs-xs);
+  color: var(--steel);
+}
+
+.schedule-title {
+  font-size: var(--fs-md);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.schedule-abstract {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  line-height: 1.55;
+  color: var(--steel);
+  max-width: 68ch;
+}
+
+.schedule-links {
+  margin-top: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// The last column is who invited the speaker — the only per-talk fact that used
+// to share this cell with the time, room, and format, all of which are constant
+// across a term and now live in the schedule note above the table.
+.schedule-host {
+  width: 9rem;
+  font-size: var(--fs-xs);
+  color: var(--steel);
+}
+
+// Weeks with no talk stay on the schedule but recede from it.
+.schedule tr.is-cancelled td {
+  color: var(--steel);
+}
+
+.schedule-none {
+  font-size: var(--fs-sm);
+}
+
+.schedule-flag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  padding: 0.1em 0.5em;
+  margin-right: var(--sp-2);
+  white-space: nowrap;
+}
+
+// ------------------------------------------------------------ news ledger
+
+// The ledger has no header row, so its cells sit flush with the measure rather
+// than indented under a header that is not there. Type runs a step smaller than
+// the seminar table: news is a scan-and-move-on list, and the smaller setting
+// fits noticeably more of it above the fold.
+// Doubled up on .data-table so these outrank the `padding` and `border-top`
+// on `.data-table tbody td`, which is (0,1,2) and would otherwise win.
+//
+// No rules between items. Every row is one line of prose against a mono date;
+// the alignment already separates them, and a hairline every 40px turned a
+// short list into a grid.
+.data-table.ledger tbody td {
+  padding-block: var(--sp-3);
+  border-top: 0;
+}
+
+.data-table.ledger tbody td:first-child {
+  padding-left: 0;
+}
+
+.data-table.ledger tbody td:last-child {
+  padding-right: 0;
+}
+
+// Nudges the mono date onto the same optical baseline as the item text.
+.data-table.ledger .ledger-date {
+  padding-top: calc(var(--sp-3) + 0.15em);
+}
+
+.ledger-date {
+  width: 6rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--steel);
+  white-space: nowrap;
+}
+
+.ledger-item {
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  max-width: 78ch;
+}
+
+// Flush with the ledger's left edge, which is where the dates start. No
+// padding at any width, so there is nothing to reset when the table reflows.
+.more-link {
+  margin-top: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-5);
+  padding-block: var(--sp-5);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// ------------------------------------------------------------------ tables
+// Below 760 the table stops being a table: headers are hidden and each row
+// becomes a block whose cells carry their own labels.
+
+@media (max-width: 760px) {
+  .data-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .data-table,
+  .data-table tbody,
+  .data-table tr,
+  .data-table tbody td {
+    display: block;
+    width: auto;
+  }
+
+  .data-table tr {
+    padding-block: var(--sp-4);
+    border-top: 1px solid var(--rule);
+  }
+
+  .data-table tbody td {
+    padding: 0;
+    border-top: 0;
+  }
+
+  .data-table tbody td + td {
+    margin-top: var(--sp-2);
+  }
+
+  // The date is a meta line above the item, not a stacked cell of its own.
+  .data-table .ledger-date {
+    display: block;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: var(--sp-1);
+  }
+
+  .data-table .ledger-item {
+    margin-top: 0;
+  }
+
+  .data-table.ledger tbody td {
+    padding-block: 0;
+  }
+
+  .data-table.ledger tr {
+    padding-block: var(--sp-3);
+    border-top: 0;
+  }
+
+  // Most talks have no host, and an empty cell should not get a HOST label.
+  .schedule-host:not(:empty)::before,
+  .schedule-speaker::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-2xs);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: var(--sp-1);
+  }
+
+}
+
+// Two readable columns need about 900px. Below that the band stacks, and
+// source order takes over: statement first, news under it.
+@media (max-width: 900px) {
+  .hero-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-6);
+    padding-block: var(--sp-7);
+  }
+}
+
+// Full width but still a table: the date gets its normal gutter back. Bounded
+// below at 761 because under 760 the ledger stops being a table — cells go
+// display:block and width:auto — and a fixed column width there is meaningless.
+// This block also sits after that one in source order, so an unbounded rule
+// here would outrank it at phone widths.
+@media (max-width: 900px) and (min-width: 761px) {
+  .hero-rail .ledger-date {
+    width: 6rem;
+    padding-right: var(--sp-3);
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-split {
+    padding-block: var(--sp-6);
+  }
+}

@@ -1,0 +1,181 @@
+// Bands run the full viewport width; .wrap pulls their contents back to the
+// measure. This replaces the old single .site-shell wrapper, which made
+// full-bleed anything impossible.
+.wrap {
+  width: min(100% - (var(--gutter) * 2), var(--measure));
+  margin-inline: auto;
+}
+
+// ---------------------------------------------------------------- masthead
+
+.masthead {
+  background: var(--crimson);
+  color: var(--knockout);
+}
+
+.masthead-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-6);
+  padding-block: var(--sp-4);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28em;
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  font-stretch: 118%;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+// ARCH sits at a lighter weight so the lockup reads as one wordmark with two
+// parts, and stays visibly distinct from MIT's official logo.
+.wordmark-arch {
+  font-weight: 400;
+  font-stretch: 118%;
+}
+
+.wordmark:hover {
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  text-decoration: none;
+  padding-block: var(--sp-1);
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  border-bottom-color: var(--knockout);
+}
+
+// -------------------------------------------------------------- section band
+
+// The structural device of the whole site: a full-bleed ink bar naming the
+// section. The bar carries the name and nothing else — headcounts on the right
+// were a number nobody needed, and they made every band look like a dashboard.
+// The one exception is the news band, which carries a real navigation link.
+.band {
+  background: var(--ink);
+  color: var(--knockout);
+  font-size: var(--fs-lg);
+}
+
+.band-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding-block: var(--sp-3);
+}
+
+// Tracking scales down as the size goes up: 0.09em suited 15px caps and reads
+// loose at 21px.
+.band-title {
+  font-weight: 800;
+  font-stretch: 112%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.section-body {
+  padding-block: var(--sp-6) var(--sp-8);
+}
+
+// A section body following a page head has no ink band between the two, so the
+// stacked paddings read as a hole. Tighten the join.
+.page-head + .section-body {
+  padding-top: var(--sp-4);
+}
+
+// ---------------------------------------------------------------- page head
+
+.page-head {
+  padding-block: var(--sp-8) var(--sp-6);
+}
+
+.page-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: var(--sp-3);
+}
+
+.page-title {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  font-stretch: 108%;
+}
+
+.page-intro {
+  max-width: 62ch;
+  margin-top: var(--sp-4);
+  color: var(--steel);
+}
+
+// ------------------------------------------------------------------ footer
+
+.site-footer {
+  background: var(--ink);
+  color: var(--knockout);
+  margin-top: var(--sp-8);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-6);
+  padding-block: var(--sp-6);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: #a8adb0;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --gutter: var(--sp-4);
+  }
+
+  .masthead-inner {
+    padding-block: var(--sp-3);
+  }
+
+  .section-body {
+    padding-block: var(--sp-5) var(--sp-7);
+  }
+
+  .page-head {
+    padding-block: var(--sp-6) var(--sp-5);
+  }
+}
+
+@media (max-width: 520px) {
+  .wordmark {
+    font-size: var(--fs-lg);
+  }
+
+  .nav {
+    gap: var(--sp-2) var(--sp-4);
+  }
+}

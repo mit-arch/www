@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/static": "." });
   eleventyConfig.addPassthroughCopy({ "src/assets/images": "assets/images" });
   eleventyConfig.addPassthroughCopy({ "src/assets/css/site.css": "assets/css/site.css" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/fonts": "assets/fonts" });
 
   eleventyConfig.addCollection("newsItems", (collectionApi) =>
     collectionApi
@@ -35,6 +36,33 @@ module.exports = function (eleventyConfig) {
       timeZone: "UTC",
       ...options
     }).format(date);
+  });
+
+  // News is dated by month, not by day — the day a paper was accepted carries
+  // no information a reader uses. The <time datetime> attribute still holds the
+  // full calendar date.
+  eleventyConfig.addFilter("monthYear", (value) => {
+    if (!value) {
+      return "";
+    }
+
+    const date = value instanceof Date ? value : new Date(value);
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      year: "numeric",
+      timeZone: "UTC"
+    }).format(date);
+  });
+
+  // Machine-readable half of every <time> element. Calendar days are parsed at
+  // UTC midnight, so slicing the ISO string cannot drift a day.
+  eleventyConfig.addFilter("isoDate", (value) => {
+    if (!value) {
+      return "";
+    }
+
+    const date = value instanceof Date ? value : new Date(value);
+    return Number.isNaN(date.getTime()) ? "" : date.toISOString().slice(0, 10);
   });
 
   eleventyConfig.addFilter("seminarDate", (value) => {
