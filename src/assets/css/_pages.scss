@@ -1,7 +1,37 @@
 // -------------------------------------------------------------------- hero
 
-.hero {
-  padding-block: var(--sp-8) var(--sp-7);
+// Two columns: the statement, then a news rail on the right. Source order
+// matches visual order, so the stacked layout below the breakpoint needs no
+// reordering — it just drops to one column.
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 21rem;
+  gap: var(--sp-7);
+  align-items: start;
+  padding-block: var(--sp-8) var(--sp-8);
+}
+
+.rail-title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: var(--sp-2);
+}
+
+// In a 21rem column the date cannot afford the 6rem gutter it gets on the news
+// page, and the item text needs every pixel back.
+.hero-rail .ledger-date {
+  width: 3.75rem;
+  padding-right: var(--sp-2);
+}
+
+.hero-rail .more-link {
+  padding-left: calc(3.75rem + var(--sp-2));
 }
 
 .hero-eyebrow {
@@ -13,32 +43,24 @@
   margin-bottom: var(--sp-4);
 }
 
+// A step down from the full display size: the statement now shares its band
+// with the news rail rather than owning the viewport.
 .hero-title {
-  font-size: var(--fs-3xl);
+  font-size: var(--fs-2xl);
   font-weight: 800;
   font-stretch: 104%;
   letter-spacing: -0.025em;
-  line-height: 1.02;
-  max-width: 16ch;
+  line-height: 1.04;
+  max-width: 14ch;
   text-wrap: balance;
 }
 
 .hero-body {
-  max-width: 58ch;
+  max-width: 52ch;
   margin-top: var(--sp-5);
-  font-size: var(--fs-lg);
-  line-height: 1.45;
+  font-size: var(--fs-md);
+  line-height: 1.5;
   color: var(--steel);
-}
-
-.machines-label {
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--steel);
-  margin-bottom: var(--sp-3);
-  font-weight: 400;
 }
 
 // --------------------------------------------------------- seminar table
@@ -229,8 +251,11 @@
   text-transform: uppercase;
 }
 
+// The ledger stops being a table here, so there is no date gutter to align to.
+// `.hero-rail .more-link` is (0,2,0), so the reset has to match that weight.
 @media (max-width: 760px) {
-  .more-link {
+  .more-link,
+  .hero-rail .more-link {
     padding-left: 0;
   }
 }
@@ -326,8 +351,33 @@
   }
 }
 
+// A 21rem rail plus a readable statement needs about 900px. Below that the
+// band stacks, and source order takes over: statement first, news under it.
+@media (max-width: 900px) {
+  .hero-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-6);
+    padding-block: var(--sp-7);
+  }
+}
+
+// Full width but still a table: the date gets its normal gutter back. Bounded
+// below at 761 because under 760 the ledger reflows to blocks and there is no
+// gutter to align to — and this block sits after that one in source order, so
+// an unbounded rule here would win at phone widths.
+@media (max-width: 900px) and (min-width: 761px) {
+  .hero-rail .ledger-date {
+    width: 6rem;
+    padding-right: var(--sp-3);
+  }
+
+  .hero-rail .more-link {
+    padding-left: calc(6rem + var(--sp-3));
+  }
+}
+
 @media (max-width: 520px) {
-  .hero {
-    padding-block: var(--sp-6) var(--sp-6);
+  .hero-split {
+    padding-block: var(--sp-6);
   }
 }

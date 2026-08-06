@@ -5,27 +5,22 @@ description: MIT Architecture Research group homepage
 ---
 {% from "components/person-card.njk" import personCard %}
 {% from "components/news-item.njk" import newsLedger %}
-{% from "components/machine-timeline.njk" import machineAxis %}
 
-<section class="hero wrap">
-  <p class="hero-eyebrow">{{ site.hero.eyebrow }}</p>
-  <h1 class="hero-title">{{ site.hero.title }}</h1>
-  <p class="hero-body">{{ site.hero.body }}</p>
-  {{ machineAxis(machines) }}
-</section>
+{# Hero and news share one band. The hero comes first in the DOM so that it
+   opens the page for readers, for the keyboard, and on phones; on desktop the
+   grid places the news rail into the left column beside it. #}
+<section class="hero-split wrap">
+  <div class="hero-main">
+    <p class="hero-eyebrow">{{ site.hero.eyebrow }}</p>
+    <h1 class="hero-title">{{ site.hero.title }}</h1>
+    <p class="hero-body">{{ site.hero.body }}</p>
+  </div>
 
-{# News sits directly under the hero at every width. It used to be a sticky
-   right rail that, once the grid collapsed, landed below all 45 people. #}
-<section class="section" id="news">
-  <h2 class="band">
-    <span class="wrap band-inner">
-      <span class="band-title">News</span>
-    </span>
-  </h2>
-  <div class="wrap section-body">
+  <div class="hero-rail" id="news">
+    <h2 class="rail-title">News</h2>
     {# Same ledger as /news/, truncated to the most recent few. #}
     {{ newsLedger(collections.newsItems.slice(0, site.newsHomepageCount), "Recent news") }}
-    {# The link sits after the items it continues, not in the band above them. #}
+    {# The link sits after the items it continues. #}
     <p class="more-link"><a href="{{ '/news/' | siteUrl }}">All news</a></p>
   </div>
 </section>

@@ -76,7 +76,7 @@
 .band {
   background: var(--ink);
   color: var(--knockout);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-lg);
 }
 
 .band-inner {
@@ -84,13 +84,15 @@
   align-items: baseline;
   justify-content: space-between;
   gap: var(--sp-4);
-  padding-block: var(--sp-2);
+  padding-block: var(--sp-3);
 }
 
+// Tracking scales down as the size goes up: 0.09em suited 15px caps and reads
+// loose at 21px.
 .band-title {
   font-weight: 800;
   font-stretch: 112%;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
