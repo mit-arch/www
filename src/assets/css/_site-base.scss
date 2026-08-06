@@ -348,6 +348,25 @@ p {
   color: var(--muted);
 }
 
+/* Weeks with no seminar stay in the schedule but recede from the talks. */
+.seminar-talk.is-cancelled .seminar-copy h3 {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.seminar-cancelled {
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1em 0.6em;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 .hero-news .news-item {
   background: transparent;
   box-shadow: none;

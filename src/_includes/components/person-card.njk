@@ -1,12 +1,12 @@
 {% set href = person.website or person.link %}
-{% set imagePath = person.image if person.image and (person.image | fileExists) else "/assets/images/placeholder-portrait.svg" %}
+{% set imagePath = person.portrait %}
 <article class="person-card">
   {% if href %}
     <a class="person-portrait-link" href="{{ href }}" {% if href | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>
-      <img class="person-portrait" src="{{ imagePath | siteUrl }}" alt="Portrait of {{ person.name }}">
+      <img class="person-portrait" src="{{ imagePath | siteUrl }}" width="256" height="256" loading="lazy" decoding="async" alt="Portrait of {{ person.name }}">
     </a>
   {% else %}
-    <img class="person-portrait" src="{{ imagePath | siteUrl }}" alt="Portrait of {{ person.name }}">
+    <img class="person-portrait" src="{{ imagePath | siteUrl }}" width="256" height="256" loading="lazy" decoding="async" alt="Portrait of {{ person.name }}">
   {% endif %}
   <div class="person-copy">
     <h3 class="person-name">

@@ -30,7 +30,7 @@ module.exports = function seminarCalendar() {
         termSlug: term.slug,
         termLabel: term.label,
         termTheme: term.theme,
-        host: term.host,
+        termHost: term.host,
         date: talk.date,
         time: talk.time || "",
         location: talk.location || "",
@@ -39,6 +39,8 @@ module.exports = function seminarCalendar() {
         title: talk.title || "",
         abstract: talk.abstract || "",
         format: talk.format || "",
+        host: talk.host || "",
+        cancelled: Boolean(talk.cancelled),
         link: talk.link || ""
       })),
     )

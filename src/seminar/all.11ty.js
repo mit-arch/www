@@ -84,7 +84,8 @@ function buildEvent(event, generatedAt) {
     lines.push(`DTSTART;VALUE=DATE:${formatDateOnly(event.date)}`);
   }
 
-  lines.push(`SUMMARY:${escapeIcsText(`${event.speaker}: ${event.title}`)}`);
+  const summary = event.speaker ? `${event.speaker}: ${event.title}` : event.title;
+  lines.push(`SUMMARY:${escapeIcsText(summary)}`);
 
   const description = [
     event.affiliation ? `${event.speaker}, ${event.affiliation}` : event.speaker,
@@ -122,6 +123,7 @@ module.exports = class SeminarCalendarTemplate {
     const generatedAt = formatTimestamp(new Date());
     const events = (data.seminarCalendar || [])
       .slice()
+      .filter((event) => !event.cancelled)
       .sort((a, b) => sortKey(a).localeCompare(sortKey(b)))
       .map((event) => buildEvent(event, generatedAt));
 

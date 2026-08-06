@@ -21,24 +21,24 @@ description: MIT Architecture Research group homepage
       </div>
     </section>
 
-    <section class="homepage-section" id="students">
-      <div class="section-heading">
-        <h2>Students</h2>
-      </div>
-      <div class="people-grid">
-        {% for person in people.students %}
-          {% set person = person %}
-          {% include "components/person-card.njk" %}
-        {% endfor %}
-      </div>
-    </section>
-
     <section class="homepage-section" id="affiliates">
       <div class="section-heading">
         <h2>Affiliates</h2>
       </div>
       <div class="people-grid">
         {% for person in people.affiliates %}
+          {% set person = person %}
+          {% include "components/person-card.njk" %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="homepage-section" id="students">
+      <div class="section-heading">
+        <h2>Students</h2>
+      </div>
+      <div class="people-grid">
+        {% for person in people.students %}
           {% set person = person %}
           {% include "components/person-card.njk" %}
         {% endfor %}

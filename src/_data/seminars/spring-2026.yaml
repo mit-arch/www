@@ -1,43 +1,105 @@
+# Transcribed from spring26.csv. Times and location carry over from the standing
+# term slot, since the CSV records only dates.
 term:
   slug: spring-2026
   title: Spring 2026
-  theme: Hardware-Software Co-Design for Modern Systems
   host: MIT Architecture Research Group
   schedule_note: Fridays, 1:00 PM, 34-401
 
 talks:
-  - date: 2026-02-13
+  - date: 2026-02-20
     time: 1:00 PM
     location: 34-401
-    speaker: Elena Petrov
-    affiliation: ETH Zurich
-    title: Compiler-Guided Locality Management for Disaggregated Memory
-    abstract: New approaches for orchestrating data placement and movement when memory is no longer tightly coupled to a single compute node.
-    format: Hybrid
+    speaker: Rachit Nigam
+    affiliation: MIT
+    title: Kick-off!
+
+  - date: 2026-02-27
+    time: 1:00 PM
+    location: 34-401
+    speaker: Yonathan Fisseha
+    affiliation: University of Michigan
+    host: Mengjia Yan
+    title: End-to-End Formal Security Guarantees for Low-Trust Architectures
 
   - date: 2026-03-06
+    cancelled: true
+    title: Visit day lunch instead
+
+  - date: 2026-03-13
     time: 1:00 PM
     location: 34-401
-    speaker: Marcus Bell
-    affiliation: NVIDIA Research
-    title: Simulation Infrastructure for Fast Accelerator Design Iteration
-    abstract: Building simulation stacks that preserve enough fidelity for architecture research without slowing down iteration to a crawl.
-    format: In person
+    speaker: Jianming Tong
+    affiliation: Georgia Tech
+    title: Enabling AI ASICs for Cryptography Primitives
+
+  - date: 2026-03-20
+    time: 1:00 PM
+    location: 34-401
+    speaker: Xingran Du
+    affiliation: MIT
+    title: Accelerating Automata Processing
+
+  - date: 2026-03-27
+    cancelled: true
+    title: Spring Break
+
+  - date: 2026-04-03
+    time: 1:00 PM
+    location: 34-401
+    speaker: Courtney Golden
+    affiliation: MIT
+    title: "Quartz: A Reconfigurable, Distributed-Memory Accelerator for Sparse Applications"
 
   - date: 2026-04-10
     time: 1:00 PM
     location: 34-401
-    speaker: Farah Nasser
-    affiliation: University of Toronto
-    title: Rethinking On-Chip Networks for Multi-Tenant AI Systems
-    abstract: How contention isolation and topology choices interact when accelerators are shared across jobs with different performance goals.
-    format: Zoom
+    speaker: Joonhyup
+    affiliation: MIT
+    title: TBD
+
+  - date: 2026-04-17
+    time: 1:00 PM
+    location: 34-401
+    speaker: Elam Day-Friedland
+    affiliation: MIT
+    title: TBD
+
+  - date: 2026-04-24
+    cancelled: true
+    title: New England Hardware Security Day
 
   - date: 2026-05-01
     time: 1:00 PM
     location: 34-401
-    speaker: Julian Park
-    affiliation: Princeton University
-    title: Cross-Layer Power Management for Latency-Critical Services
-    abstract: Coordinating software control loops and hardware power states to reduce energy use without violating tail-latency targets.
-    format: In person
+    speaker: Christos Zarkos
+    affiliation: MIT
+    title: TBD
+
+  - date: 2026-05-08
+    time: 1:00 PM
+    location: 34-401
+    speaker: Peter Deutsch
+    affiliation: MIT
+    title: Understanding Architectural Vulnerability to Hardware Fault
+
+  - date: 2026-05-15
+    time: 1:00 PM
+    location: 34-401
+    speaker: Varun Gohil
+    affiliation: MIT
+    title: Building Resilient ML-Based Computer Systems by Embracing Uncertainty
+
+  - date: 2026-05-22
+    time: 1:00 PM
+    location: 34-401
+    speaker: Jing Li
+    host: Joel Emer
+    title: "Liquid Machine: A 15-year Journey Towards Software-Defined Everything"
+
+  - date: 2026-05-29
+    time: 1:00 PM
+    location: 34-401
+    speaker: Sridevi
+    host: Mengjia Yan
+    title: TBD

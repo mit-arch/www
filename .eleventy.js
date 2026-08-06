@@ -1,5 +1,3 @@
-const fs = require("node:fs");
-const path = require("node:path");
 const site = require("./src/_data/site");
 
 function shortYear(value) {
@@ -32,6 +30,9 @@ module.exports = function (eleventyConfig) {
       month: "short",
       day: "numeric",
       year: "numeric",
+      // Dates in front matter are calendar days parsed at UTC midnight; format
+      // them in UTC so they do not slip a day west of Greenwich.
+      timeZone: "UTC",
       ...options
     }).format(date);
   });
@@ -44,17 +45,9 @@ module.exports = function (eleventyConfig) {
     return new Intl.DateTimeFormat("en-US", {
       weekday: "short",
       month: "short",
-      day: "numeric"
+      day: "numeric",
+      timeZone: "UTC"
     }).format(new Date(value));
-  });
-
-  eleventyConfig.addFilter("fileExists", (assetPath) => {
-    if (!assetPath) {
-      return false;
-    }
-
-    const localPath = path.join(process.cwd(), "src", assetPath.replace(/^\//, ""));
-    return fs.existsSync(localPath);
   });
 
   eleventyConfig.addFilter("personSubtitle", (person) => {

@@ -1,17 +1,98 @@
-- name: Maya Patel
-  program: PhD
-  year: 2027
-  website: https://example.edu/maya-patel
-  image: /assets/people/maya-patel.jpg
+# Sourced from faculty group pages (August 2026). Keep alphabetical by last name.
+- name: Tanner Andrulis
+  program: PhD, advised by Vivienne Sze and Joel Emer
 
-- name: Kevin Zhou
-  program: PhD
-  year: 2028
-  website: https://example.edu/kevin-zhou
-  image: /assets/people/kevin-zhou.jpg
+- name: Anubhav Bhatla
+  program: PhD, advised by Mengjia Yan
+  website: https://anubhavbhatla.github.io/
 
-- name: Sofia Kim
-  program: MEng
-  year: 2026
-  website: https://example.edu/sofia-kim
-  image: /assets/people/sofia-kim.jpg
+- name: Qihang Chen
+  program: PhD, advised by Christina Delimitrou
+
+- name: Elam Day-Friedland
+  program: PhD, advised by Rachit Nigam
+  website: https://elam.day
+
+- name: Peter Deutsch
+  program: PhD, advised by Mengjia Yan
+  website: https://peterdeutsch.ca/
+
+- name: Tingzhen Dong
+  program: PhD, advised by Mengjia Yan
+
+- name: Xingran Du
+  program: PhD, advised by Daniel Sanchez and Joel Emer
+
+- name: Fares Elsabbagh
+  program: PhD, advised by Daniel Sanchez and Joel Emer
+
+- name: Axel Feldmann
+  program: PhD, advised by Daniel Sanchez
+  website: https://feldmann.nyc/
+
+- name: Zih-Sing Fu
+  program: PhD, advised by Vivienne Sze
+
+- name: Michael Gilbert
+  program: PhD, advised by Vivienne Sze and Joel Emer
+
+- name: Varun Gohil
+  program: PhD, advised by Christina Delimitrou
+
+- name: Courtney Golden
+  program: PhD, advised by Daniel Sanchez and Joel Emer
+
+- name: Jamie Koerner
+  program: PhD, advised by Vivienne Sze
+
+- name: Aleksandar Krastev
+  program: PhD, advised by Daniel Sanchez
+  website: https://alexalex.xyz/
+
+- name: Hyun Ryong Lee
+  program: PhD, advised by Daniel Sanchez
+
+- name: Peter Zhi Xuan Li
+  program: PhD, advised by Vivienne Sze
+
+- name: Lecheng Qu
+  program: PhD, advised by Mengjia Yan
+
+- name: Joseph Ravichandran
+  program: PhD, advised by Mengjia Yan
+
+- name: Viansa Schmulbach
+  program: PhD, advised by Daniel Sanchez and Christina Delimitrou
+
+- name: Shabnam Sheikhha
+  program: PhD, advised by Daniel Sanchez
+
+- name: Shixin Song
+  program: PhD, advised by Mengjia Yan
+  website: https://zhizhuoxin.github.io/
+
+- name: Soumya Sudhakar
+  program: PhD, advised by Vivienne Sze
+
+- name: Daniël Trujillo
+  program: PhD, advised by Mengjia Yan
+
+- name: Kunpeng Wang
+  program: PhD, advised by Mengjia Yan
+
+- name: Jaeyeon Won
+  program: PhD, advised by Joel Emer and Saman Amarasinghe
+
+- name: Zi Yu Xue
+  program: PhD, advised by Vivienne Sze and Joel Emer
+
+- name: Yuheng Yang
+  program: PhD, advised by Mengjia Yan
+  website: https://people.csail.mit.edu/yuhengy/
+
+- name: Christos Zarkos
+  program: PhD, advised by Christina Delimitrou
+
+- name: Carolyn Zech
+  program: PhD, advised by Rachit Nigam
+  website: https://carolynzech.com

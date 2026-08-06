@@ -1,9 +1,29 @@
-- name: Daniel Sanchez
-  title: Professor of Electrical Engineering and Computer Science
-  website: https://example.edu/daniel-sanchez
-  image: /assets/people/daniel-sanchez.jpg
+# Ordered by last name. Portraits are matched by name from
+# src/assets/images/people/ — see src/_data/people.js.
+- name: Christina Delimitrou
+  title: Associate Professor
+  website: https://people.csail.mit.edu/delimitrou/
 
-- name: Jade Lin
-  title: Associate Professor of Electrical Engineering and Computer Science
-  website: https://example.edu/jade-lin
-  image: /assets/people/jade-lin.jpg
+- name: Srini Devadas
+  title: Full Professor
+  website: https://people.csail.mit.edu/devadas/
+
+- name: Joel Emer
+  title: Professor of the Practice
+  website: https://people.csail.mit.edu/emer/
+
+- name: Rachit Nigam
+  title: Assistant Professor
+  website: https://rachitnigam.com
+
+- name: Daniel Sanchez
+  title: Full Professor
+  website: https://people.csail.mit.edu/sanchez/
+
+- name: Vivienne Sze
+  title: Full Professor
+  website: https://eems.mit.edu/
+
+- name: Mengjia Yan
+  title: Associate Professor
+  website: https://people.csail.mit.edu/mengjia/

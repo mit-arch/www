@@ -1,9 +1,12 @@
-- name: Arjun Narayan
-  title: Research Affiliate, CSAIL
-  website: https://example.edu/arjun-narayan
-  image: /assets/people/arjun-narayan.jpg
+# Lecturers first, then postdocs; each group ordered by last name.
+- name: Silvina Hanono Wachman
+  title: Senior Lecturer
+  website: https://www.eecs.mit.edu/people/silvina-z-hanono-wachman/
 
-- name: Elise Tan
-  title: Visiting Researcher, NVIDIA
-  website: https://example.edu/elise-tan
-  image: /assets/people/elise-tan.jpg
+- name: Joe Steinmeyer
+  title: Senior Lecturer
+  website: https://www.jodalyst.com/
+
+- name: Vincent Ulitzsch
+  title: Postdoctoral Associate
+  website: https://www.user.tu-berlin.de/sleik/
