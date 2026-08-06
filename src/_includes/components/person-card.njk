@@ -1,21 +1,30 @@
-{% set href = person.website or person.link %}
-{% set imagePath = person.portrait %}
-<article class="person-card">
-  {% if href %}
-    <a class="person-portrait-link" href="{{ href }}" {% if href | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>
-      <img class="person-portrait" src="{{ imagePath | siteUrl }}" width="256" height="256" loading="lazy" decoding="async" alt="Portrait of {{ person.name }}">
-    </a>
-  {% else %}
-    <img class="person-portrait" src="{{ imagePath | siteUrl }}" width="256" height="256" loading="lazy" decoding="async" alt="Portrait of {{ person.name }}">
-  {% endif %}
-  <div class="person-copy">
-    <h3 class="person-name">
-      {% if href %}
-        <a href="{{ href }}" {% if href | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>{{ person.name }}</a>
-      {% else %}
-        {{ person.name }}
+{# personCard(person, subtitle)
+   subtitle=false drops the descriptive line entirely. PhD students use this:
+   their `program` field reads "PhD, advised by …", which the roster does not
+   want to repeat 30 times under a heading that already says PhD Students. #}
+{% macro personCard(person, subtitle=true) %}
+  {% set href = person.website or person.link %}
+  {% set external = href | isExternalUrl %}
+  <article class="person">
+    {% if href %}
+      <a class="person-link" href="{{ href }}" tabindex="-1" aria-hidden="true">
+        <img class="person-portrait" src="{{ person.portrait | siteUrl }}" width="112" height="112" loading="lazy" decoding="async" alt="">
+      </a>
+    {% else %}
+      <img class="person-portrait" src="{{ person.portrait | siteUrl }}" width="112" height="112" loading="lazy" decoding="async" alt="">
+    {% endif %}
+    <div class="person-copy">
+      <h3 class="person-name">
+        {% if href %}
+          <a href="{{ href }}"{% if external %} target="_blank" rel="noreferrer"{% endif %}>{{ person.name }}</a>
+        {% else %}
+          {{ person.name }}
+        {% endif %}
+      </h3>
+      {% if subtitle %}
+        {% set line = person | personSubtitle %}
+        {% if line %}<p class="person-title">{{ line }}</p>{% endif %}
       {% endif %}
-    </h3>
-    <p>{{ person | personSubtitle }}</p>
-  </div>
-</article>
+    </div>
+  </article>
+{% endmacro %}

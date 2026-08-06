@@ -1,0 +1,282 @@
+// -------------------------------------------------------------------- hero
+
+.hero {
+  padding-block: var(--sp-8) var(--sp-7);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: var(--sp-4);
+}
+
+.hero-title {
+  font-size: var(--fs-3xl);
+  font-weight: 800;
+  font-stretch: 104%;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.hero-body {
+  max-width: 58ch;
+  margin-top: var(--sp-5);
+  font-size: var(--fs-lg);
+  line-height: 1.45;
+  color: var(--steel);
+}
+
+.machines-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: var(--sp-3);
+  font-weight: 400;
+}
+
+// ------------------------------------------------------------- news strip
+
+// Three across on the homepage, directly under the hero. The old build put
+// news in a sticky right rail that fell below 45 people on every narrow screen.
+.news-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-5);
+}
+
+.news-strip .record {
+  grid-template-columns: 1fr;
+  gap: var(--sp-2);
+  padding-block: var(--sp-3) 0;
+  border-top: 2px solid var(--ink);
+}
+
+.news-strip .record:first-child {
+  padding-top: var(--sp-3);
+  border-top: 2px solid var(--ink);
+}
+
+.band-link {
+  color: inherit;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+// --------------------------------------------------------- seminar table
+
+.schedule-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+  align-items: baseline;
+  margin-top: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.schedule {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.schedule thead th {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--knockout);
+  background: var(--ink);
+  padding: var(--sp-2) var(--sp-3);
+  white-space: nowrap;
+}
+
+.schedule tbody td {
+  padding: var(--sp-4) var(--sp-3);
+  border-top: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.schedule-date {
+  width: 8.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--steel);
+  white-space: nowrap;
+}
+
+.schedule-speaker {
+  width: 15rem;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+}
+
+.schedule-affiliation {
+  display: block;
+  font-weight: 400;
+  font-size: var(--fs-xs);
+  color: var(--steel);
+}
+
+.schedule-title {
+  font-size: var(--fs-md);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.schedule-abstract {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  line-height: 1.55;
+  color: var(--steel);
+  max-width: 68ch;
+}
+
+.schedule-links {
+  margin-top: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// Room number gets its own aligned column instead of being concatenated into a
+// run of uppercase micro-text with the time, format, and host.
+.schedule-where {
+  width: 8rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--steel);
+  white-space: nowrap;
+}
+
+.schedule-room {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.schedule-host {
+  display: block;
+  margin-top: var(--sp-1);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.04em;
+}
+
+// Weeks with no talk stay on the schedule but recede from it.
+.schedule tr.is-cancelled td {
+  color: var(--steel);
+}
+
+.schedule-none {
+  font-size: var(--fs-sm);
+}
+
+.schedule-flag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  padding: 0.1em 0.5em;
+  margin-right: var(--sp-2);
+  white-space: nowrap;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-5);
+  padding-block: var(--sp-5);
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// ------------------------------------------------------------------ tables
+// Below 760 the table stops being a table: headers are hidden and each row
+// becomes a block whose cells carry their own labels.
+
+@media (max-width: 760px) {
+  .news-strip {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+
+  .schedule thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .schedule,
+  .schedule tbody,
+  .schedule tr,
+  .schedule tbody td {
+    display: block;
+    width: auto;
+  }
+
+  .schedule tr {
+    padding-block: var(--sp-4);
+    border-top: 1px solid var(--rule);
+  }
+
+  .schedule tbody td {
+    padding: 0;
+    border-top: 0;
+  }
+
+  .schedule tbody td + td {
+    margin-top: var(--sp-2);
+  }
+
+  .schedule-where::before,
+  .schedule-speaker::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-2xs);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+    margin-bottom: var(--sp-1);
+  }
+
+  .schedule-room,
+  .schedule-where {
+    display: inline;
+  }
+
+  .schedule-host {
+    display: block;
+    margin-top: var(--sp-1);
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    padding-block: var(--sp-6) var(--sp-6);
+  }
+}

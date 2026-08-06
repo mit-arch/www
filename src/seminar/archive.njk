@@ -3,24 +3,36 @@ layout: layouts/base.njk
 title: Seminar Archive
 description: Archived seminar terms
 ---
-<section class="page-header">
-  <p class="eyebrow">Seminar</p>
-  <h1>Archive</h1>
-  <p>Past terms remain available as stand-alone schedule pages.</p>
+<section class="page-head wrap">
+  <p class="page-eyebrow">Seminar</p>
+  <h1 class="page-title">Archive</h1>
+  <p class="page-intro">Past terms remain available as stand-alone schedule pages.</p>
 </section>
 
-<p class="page-link-row">
-  <a class="text-link" href="{{ '/seminar/all.ics' | siteUrl }}">Subscribe to calendar</a>
-</p>
+{# Ruled rows rather than cards. The old .archive-card inherited uppercase and
+   letter-spacing from a shared micro-text rule, which set each term's whole
+   description sentence in 12px capitals. #}
+<div class="wrap">
+  <div class="record-list">
+    {% for term in seminarTerms %}
+      {% if term.slug != currentSeminar.slug %}
+        <article class="record">
+          <div class="record-meta">
+            <span>{{ term.talks.length }} talk{% if term.talks.length != 1 %}s{% endif %}</span>
+          </div>
+          <div class="record-copy">
+            <p class="record-title">
+              <a href="{{ ('/seminar/' + term.slug + '/') | siteUrl }}">{{ term.label }}</a>
+            </p>
+            {% if term.description %}<p>{{ term.description }}</p>{% endif %}
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
 
-<section class="archive-grid">
-  {% for term in seminarTerms %}
-    {% if term.slug != currentSeminar.slug %}
-      <article class="archive-card">
-        <p>{{ term.talks.length }} talks</p>
-        <h2><a href="{{ ('/seminar/' + term.slug + '/') | siteUrl }}">{{ term.label }}</a></h2>
-        <p>{{ term.description or site.seminarBlurb }}</p>
-      </article>
-    {% endif %}
-  {% endfor %}
-</section>
+  <p class="link-row">
+    <a href="{{ '/seminar/' | siteUrl }}">Current term</a>
+    <a href="{{ '/seminar/all.ics' | siteUrl }}">Subscribe to calendar</a>
+  </p>
+</div>

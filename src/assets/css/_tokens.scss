@@ -1,0 +1,70 @@
+// Self-hosted, latin subset, served from src/assets/fonts. Both faces are
+// SIL OFL 1.1. Paths are relative to this stylesheet so they survive any
+// SITE_BASE_PATH without going through the siteUrl filter.
+
+// Archivo carries both a weight and a width axis in one file, which is why the
+// masthead can be genuinely expanded rather than letterspaced to fake it.
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/archivo-var-latin.woff2") format("woff2");
+  font-weight: 400 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plex Mono";
+  src: url("../fonts/plex-mono-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plex Mono";
+  src: url("../fonts/plex-mono-600-latin.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  // Palette. Crimson is MIT's institutional colour and the only accent; ink
+  // carries the section bands so the page never has more than one loud field.
+  --ink: #111418;
+  --paper: #fcfcfa;
+  --crimson: #a31f34;
+  --steel: #6e7377;
+  --rule: #d8d9d6;
+  --knockout: #ffffff;
+
+  // Fallbacks are listed so a blocked webfont degrades to something with
+  // similar metrics rather than to Times.
+  --font-sans: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-mono: "Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  // Type scale, ~1.25 ratio. Every font-size in the site comes from this list.
+  --fs-2xs: 0.6875rem;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.3125rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: clamp(2.25rem, 5vw, 3.5rem);
+  --fs-3xl: clamp(2.5rem, 7vw, 5rem);
+
+  // Spacing scale. Nothing should introduce a one-off margin outside these.
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  --measure: 1180px;
+  --gutter: var(--sp-5);
+}

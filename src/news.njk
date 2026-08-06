@@ -3,15 +3,28 @@ layout: layouts/base.njk
 title: News
 description: News and announcements from the MIT Architecture Research group
 ---
-<section class="page-header">
-  <p class="eyebrow">Updates</p>
-  <h1>News</h1>
-  <p>Paper acceptances, awards, and research milestones from the group.</p>
+{% from "components/news-item.njk" import newsRow %}
+
+<section class="page-head wrap">
+  <p class="page-eyebrow">Updates</p>
+  <h1 class="page-title">News</h1>
+  <p class="page-intro">Paper acceptances, awards, and research milestones from the group.</p>
 </section>
 
-<section class="stack-list">
-  {% for item in collections.newsItems %}
-    {% set item = item %}
-    {% include "components/news-item.njk" %}
-  {% endfor %}
-</section>
+{# Grouped by year, with the year carried on the same band device the homepage
+   uses for sections — so the band always names what follows it. #}
+{% for group in collections.newsItems | byYear %}
+  <section class="section">
+    <h2 class="band">
+      <span class="wrap band-inner">
+        <span class="band-title">{{ group.year }}</span>
+        <span class="band-count">{{ group.items.length }} item{% if group.items.length != 1 %}s{% endif %}</span>
+      </span>
+    </h2>
+    <div class="wrap section-body">
+      <div class="record-list">
+        {% for item in group.items %}{{ newsRow(item) }}{% endfor %}
+      </div>
+    </div>
+  </section>
+{% endfor %}

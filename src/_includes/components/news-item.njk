@@ -1,12 +1,13 @@
-<article class="news-item">
-  <div class="news-meta">
-    <span>{{ item.date | readableDate }}</span>
-    {% if item.data.kind %}
-      <span class="news-meta-separator">&middot;</span>
-      <span>{{ item.data.kind }}</span>
-    {% endif %}
-  </div>
-  <div class="news-copy">
-    {{ item.content | safe }}
-  </div>
-</article>
+{# newsRow(item) — the shared record primitive: mono meta gutter, then copy.
+   `date` comes off the collection item, `kind` off its front matter. #}
+{% macro newsRow(item) %}
+  <article class="record">
+    <div class="record-meta">
+      <time datetime="{{ item.date | isoDate }}">{{ item.date | readableDate }}</time>
+      {% if item.data.kind %}<span class="tag">{{ item.data.kind }}</span>{% endif %}
+    </div>
+    <div class="record-copy">
+      {{ item.content | safe }}
+    </div>
+  </article>
+{% endmacro %}

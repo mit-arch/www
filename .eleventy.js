@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/static": "." });
   eleventyConfig.addPassthroughCopy({ "src/assets/images": "assets/images" });
   eleventyConfig.addPassthroughCopy({ "src/assets/css/site.css": "assets/css/site.css" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/fonts": "assets/fonts" });
 
   eleventyConfig.addCollection("newsItems", (collectionApi) =>
     collectionApi
@@ -35,6 +36,35 @@ module.exports = function (eleventyConfig) {
       timeZone: "UTC",
       ...options
     }).format(date);
+  });
+
+  // Machine-readable half of every <time> element. Calendar days are parsed at
+  // UTC midnight, so slicing the ISO string cannot drift a day.
+  eleventyConfig.addFilter("isoDate", (value) => {
+    if (!value) {
+      return "";
+    }
+
+    const date = value instanceof Date ? value : new Date(value);
+    return Number.isNaN(date.getTime()) ? "" : date.toISOString().slice(0, 10);
+  });
+
+  // News is read newest-first, so the years come out descending already.
+  eleventyConfig.addFilter("byYear", (items) => {
+    const groups = new Map();
+
+    (items || []).forEach((item) => {
+      const date = item.date instanceof Date ? item.date : new Date(item.date);
+      const year = String(date.getUTCFullYear());
+
+      if (!groups.has(year)) {
+        groups.set(year, []);
+      }
+
+      groups.get(year).push(item);
+    });
+
+    return [...groups.entries()].map(([year, entries]) => ({ year, items: entries }));
   });
 
   eleventyConfig.addFilter("seminarDate", (value) => {

@@ -1,28 +1,49 @@
-<div class="seminar-list">
-  {% for talk in term.talks %}
-    <article class="seminar-talk{% if talk.cancelled %} is-cancelled{% endif %}">
-      <div class="seminar-date">{{ talk.date | seminarDate }}</div>
-      <div class="seminar-copy">
-        {% if talk.speaker %}
-          <p class="seminar-speaker">{{ talk.speaker }}{% if talk.affiliation %}, <span>{{ talk.affiliation }}</span>{% endif %}</p>
-        {% endif %}
-        <h3>{% if talk.cancelled %}<span class="seminar-cancelled">No seminar</span> {% endif %}{{ talk.title }}</h3>
-        <p class="seminar-details">
-          {% if talk.time %}{{ talk.time }}{% endif %}
-          {% if talk.time and talk.location %} · {% endif %}
-          {% if talk.location %}{{ talk.location }}{% endif %}
-          {% if (talk.time or talk.location) and talk.format %} · {% endif %}
-          {% if talk.format %}{{ talk.format }}{% endif %}
-          {% if (talk.time or talk.location or talk.format) and talk.host %} · {% endif %}
-          {% if talk.host %}Host: {{ talk.host }}{% endif %}
-        </p>
-        {% if talk.abstract %}
-          <p>{{ talk.abstract }}</p>
-        {% endif %}
-        {% if talk.link %}
-          <p><a href="{{ talk.link }}" {% if talk.link | isExternalUrl %}target="_blank" rel="noreferrer"{% endif %}>Talk link</a></p>
-        {% endif %}
-      </div>
-    </article>
-  {% endfor %}
-</div>
+{# schedule(term) — the seminar schedule is tabular data, so it is a table.
+   Below 760px the CSS hides the header row and each <tr> reflows to a block
+   whose cells carry their own labels via data-label. #}
+{% macro schedule(term) %}
+  <table class="schedule">
+    <caption class="visually-hidden">{{ term.label }} seminar schedule</caption>
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Speaker</th>
+        <th scope="col">Talk</th>
+        <th scope="col">Where</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for talk in term.talks %}
+        <tr{% if talk.cancelled %} class="is-cancelled"{% endif %}>
+          <td class="schedule-date"><time datetime="{{ talk.date | isoDate }}">{{ talk.date | seminarDate }}</time></td>
+          {% if talk.cancelled %}
+            {# No speaker, no room: one muted cell across the rest of the row. #}
+            <td class="schedule-none" colspan="3">
+              <span class="schedule-flag">No seminar</span>{{ talk.title }}
+            </td>
+          {% else %}
+            <td class="schedule-speaker" data-label="Speaker">
+              {{ talk.speaker }}
+              {% if talk.affiliation %}<span class="schedule-affiliation">{{ talk.affiliation }}</span>{% endif %}
+            </td>
+            <td class="schedule-talk">
+              <span class="schedule-title">{{ talk.title }}</span>
+              {% if talk.abstract %}<p class="schedule-abstract">{{ talk.abstract }}</p>{% endif %}
+              {% if talk.link %}
+                <p class="schedule-links">
+                  <a href="{{ talk.link }}"{% if talk.link | isExternalUrl %} target="_blank" rel="noreferrer"{% endif %}>Talk details</a>
+                </p>
+              {% endif %}
+            </td>
+            <td class="schedule-where" data-label="Where">
+              {% if talk.location %}<span class="schedule-room">{{ talk.location }}</span>{% endif %}
+              {% if talk.time %}{{ talk.time }}{% endif %}
+              {% if talk.format %}<span class="schedule-host">{{ talk.format }}</span>{% endif %}
+              {% if talk.host %}<span class="schedule-host">Host: {{ talk.host }}</span>{% endif %}
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endmacro %}

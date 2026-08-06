@@ -5,31 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ description or site.description }}">
+    {# Both faces are used above the fold, so both are worth preloading. #}
+    <link rel="preload" href="{{ '/assets/fonts/archivo-var-latin.woff2' | siteUrl }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ '/assets/fonts/plex-mono-400-latin.woff2' | siteUrl }}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ '/assets/css/site.css' | siteUrl }}">
   </head>
   <body>
-    <div class="site-shell">
-      <header class="site-header">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="masthead">
+      <div class="wrap masthead-inner">
         <a class="wordmark" href="{{ '/' | siteUrl }}" aria-label="{{ site.groupName }}">
-          <span class="wordmark-mit">MIT</span>
-          <span class="wordmark-arch">ARCH</span>
+          <span class="wordmark-mit">MIT</span><span class="wordmark-arch">Arch</span>
         </a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="{{ '/' | siteUrl }}">Home</a>
-          <a href="{{ '/seminar/' | siteUrl }}">Seminar</a>
-          <a href="{{ '/news/' | siteUrl }}">News</a>
-          <a href="{{ '/seminar/archive/' | siteUrl }}">Archive</a>
+        <nav class="nav" aria-label="Primary">
+          {% set navItems = [
+            { url: "/", label: "Home" },
+            { url: "/seminar/", label: "Seminar" },
+            { url: "/news/", label: "News" },
+            { url: "/seminar/archive/", label: "Archive" }
+          ] %}
+          {% for item in navItems %}
+            <a href="{{ item.url | siteUrl }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
+          {% endfor %}
         </nav>
-      </header>
+      </div>
+    </header>
 
-      <main>
-        {{ content | safe }}
-      </main>
+    <main id="main">
+      {{ content | safe }}
+    </main>
 
-      <footer class="site-footer">
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
         <p>{{ site.groupName }}</p>
         <p>{{ site.location }}</p>
-      </footer>
-    </div>
+      </div>
+    </footer>
   </body>
 </html>
