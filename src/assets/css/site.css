@@ -235,15 +235,12 @@ a:hover {
   text-transform: uppercase;
 }
 
-.band-count {
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.08em;
-  color: #a8adb0;
-}
-
 .section-body {
   padding-block: var(--sp-6) var(--sp-8);
+}
+
+.page-head + .section-body {
+  padding-top: var(--sp-4);
 }
 
 .page-head {
@@ -648,16 +645,6 @@ a:hover {
   font-weight: 400;
 }
 
-.band-link {
-  color: inherit;
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
-}
-
 .schedule-meta {
   display: flex;
   flex-wrap: wrap;
@@ -780,30 +767,53 @@ a:hover {
   white-space: nowrap;
 }
 
+.data-table.ledger tbody td {
+  padding-block: var(--sp-3);
+  border-top: 0;
+}
+
+.data-table.ledger tbody td:first-child {
+  padding-left: 0;
+}
+
+.data-table.ledger tbody td:last-child {
+  padding-right: 0;
+}
+
+.data-table.ledger .ledger-date {
+  padding-top: calc(var(--sp-3) + 0.15em);
+}
+
 .ledger-date {
-  width: 10rem;
+  width: 6rem;
   font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.04em;
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--steel);
   white-space: nowrap;
 }
 
-.ledger-kind {
-  width: 12rem;
+.ledger-item {
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  max-width: 78ch;
+}
+
+.more-link {
+  margin-top: var(--sp-4);
+  padding-left: calc(6rem + var(--sp-3));
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--crimson);
 }
 
-.ledger-item {
-  font-size: var(--fs-sm);
-  line-height: 1.55;
+@media (max-width: 760px) {
+  .more-link {
+    padding-left: 0;
+  }
 }
-
 .link-row {
   display: flex;
   flex-wrap: wrap;
@@ -841,13 +851,21 @@ a:hover {
   .data-table tbody td + td {
     margin-top: var(--sp-2);
   }
-  .data-table .ledger-date,
-  .data-table .ledger-kind {
-    display: inline-block;
+  .data-table .ledger-date {
+    display: block;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: var(--sp-1);
+  }
+  .data-table .ledger-item {
     margin-top: 0;
   }
-  .data-table .ledger-kind {
-    margin-left: var(--sp-3);
+  .data-table.ledger tbody td {
+    padding-block: 0;
+  }
+  .data-table.ledger tr {
+    padding-block: var(--sp-3);
+    border-top: 0;
   }
   .schedule-where::before,
   .schedule-speaker::before {

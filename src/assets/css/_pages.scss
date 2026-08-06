@@ -41,16 +41,6 @@
   font-weight: 400;
 }
 
-.band-link {
-  color: inherit;
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-bottom: 1px solid currentColor;
-}
-
 // --------------------------------------------------------- seminar table
 
 .schedule-meta {
@@ -182,28 +172,67 @@
 
 // ------------------------------------------------------------ news ledger
 
+// The ledger has no header row, so its cells sit flush with the measure rather
+// than indented under a header that is not there. Type runs a step smaller than
+// the seminar table: news is a scan-and-move-on list, and the smaller setting
+// fits noticeably more of it above the fold.
+// Doubled up on .data-table so these outrank the `padding` and `border-top`
+// on `.data-table tbody td`, which is (0,1,2) and would otherwise win.
+//
+// No rules between items. Every row is one line of prose against a mono date;
+// the alignment already separates them, and a hairline every 40px turned a
+// short list into a grid.
+.data-table.ledger tbody td {
+  padding-block: var(--sp-3);
+  border-top: 0;
+}
+
+.data-table.ledger tbody td:first-child {
+  padding-left: 0;
+}
+
+.data-table.ledger tbody td:last-child {
+  padding-right: 0;
+}
+
+// Nudges the mono date onto the same optical baseline as the item text.
+.data-table.ledger .ledger-date {
+  padding-top: calc(var(--sp-3) + 0.15em);
+}
+
 .ledger-date {
-  width: 10rem;
+  width: 6rem;
   font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.04em;
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--steel);
   white-space: nowrap;
 }
 
-.ledger-kind {
-  width: 12rem;
+.ledger-item {
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  max-width: 78ch;
+}
+
+// Continues the list above it, so it aligns with the item column rather than
+// the date gutter.
+.more-link {
+  margin-top: var(--sp-4);
+  // Date column width plus the item cell's own left padding, so the link starts
+  // on the same edge as the item text.
+  padding-left: calc(6rem + var(--sp-3));
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--crimson);
 }
 
-.ledger-item {
-  font-size: var(--fs-sm);
-  line-height: 1.55;
+@media (max-width: 760px) {
+  .more-link {
+    padding-left: 0;
+  }
 }
 
 .link-row {
@@ -252,16 +281,25 @@
     margin-top: var(--sp-2);
   }
 
-  // Date and kind read as one meta line above the item. These need to outrank
-  // the `td + td { margin-top }` rule above, which would otherwise stack them.
-  .data-table .ledger-date,
-  .data-table .ledger-kind {
-    display: inline-block;
+  // The date is a meta line above the item, not a stacked cell of its own.
+  .data-table .ledger-date {
+    display: block;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: var(--sp-1);
+  }
+
+  .data-table .ledger-item {
     margin-top: 0;
   }
 
-  .data-table .ledger-kind {
-    margin-left: var(--sp-3);
+  .data-table.ledger tbody td {
+    padding-block: 0;
+  }
+
+  .data-table.ledger tr {
+    padding-block: var(--sp-3);
+    border-top: 0;
   }
 
   .schedule-where::before,

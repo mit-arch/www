@@ -1,28 +1,22 @@
-{# newsLedger(items, caption) — news as a DATE / KIND / ITEM table, the same
-   tabular language as the seminar schedule.
+{# newsLedger(items, caption) — news as a dated ledger: one mono date column,
+   one item column, hairline between rows.
+
+   No header row and no kind column. With two columns, a header row labels what
+   the rows already make obvious, and it put a second ink bar directly beneath
+   the section band. The `kind` field is still carried in each item's front
+   matter but is not rendered: the item text already says whether it is a paper,
+   an award, or a talk. The visually-hidden caption keeps the table announced.
 
    Dates show month and year only: the day a paper was accepted is not
    something a reader uses. The <time datetime> attribute still carries the
-   full calendar date for machines.
-
-   There are deliberately no year separator rows. Every date already ends in
-   its year, so a separator would repeat what the column says and would stack a
-   second ink bar directly under the header row. #}
+   full calendar date for machines. #}
 {% macro newsLedger(items, caption) %}
   <table class="data-table ledger">
     <caption class="visually-hidden">{{ caption }}</caption>
-    <thead>
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Kind</th>
-        <th scope="col">Item</th>
-      </tr>
-    </thead>
     <tbody>
       {% for item in items %}
         <tr>
           <td class="ledger-date"><time datetime="{{ item.date | isoDate }}">{{ item.date | monthYear }}</time></td>
-          <td class="ledger-kind">{{ item.data.kind }}</td>
           <td class="ledger-item">{{ item.content | safe }}</td>
         </tr>
       {% endfor %}

@@ -70,8 +70,9 @@
 // -------------------------------------------------------------- section band
 
 // The structural device of the whole site: a full-bleed ink bar naming the
-// section, with a mono figure on the right that says something true about the
-// contents (a count, a year) rather than decorating it.
+// section. The bar carries the name and nothing else — headcounts on the right
+// were a number nobody needed, and they made every band look like a dashboard.
+// The one exception is the news band, which carries a real navigation link.
 .band {
   background: var(--ink);
   color: var(--knockout);
@@ -93,15 +94,14 @@
   text-transform: uppercase;
 }
 
-.band-count {
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.08em;
-  color: #a8adb0;
-}
-
 .section-body {
   padding-block: var(--sp-6) var(--sp-8);
+}
+
+// A section body following a page head has no ink band between the two, so the
+// stacked paddings read as a hole. Tighten the join.
+.page-head + .section-body {
+  padding-top: var(--sp-4);
 }
 
 // ---------------------------------------------------------------- page head

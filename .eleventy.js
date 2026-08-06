@@ -48,7 +48,7 @@ module.exports = function (eleventyConfig) {
 
     const date = value instanceof Date ? value : new Date(value);
     return new Intl.DateTimeFormat("en-US", {
-      month: "long",
+      month: "short",
       year: "numeric",
       timeZone: "UTC"
     }).format(date);

@@ -20,12 +20,13 @@ description: MIT Architecture Research group homepage
   <h2 class="band">
     <span class="wrap band-inner">
       <span class="band-title">News</span>
-      <a class="band-link" href="{{ '/news/' | siteUrl }}">All news</a>
     </span>
   </h2>
   <div class="wrap section-body">
     {# Same ledger as /news/, truncated to the most recent few. #}
     {{ newsLedger(collections.newsItems.slice(0, site.newsHomepageCount), "Recent news") }}
+    {# The link sits after the items it continues, not in the band above them. #}
+    <p class="more-link"><a href="{{ '/news/' | siteUrl }}">All news</a></p>
   </div>
 </section>
 
@@ -33,7 +34,6 @@ description: MIT Architecture Research group homepage
   <h2 class="band">
     <span class="wrap band-inner">
       <span class="band-title">Faculty</span>
-      <span class="band-count">{{ people.faculty.length }}</span>
     </span>
   </h2>
   <div class="wrap section-body">
@@ -47,7 +47,6 @@ description: MIT Architecture Research group homepage
   <h2 class="band">
     <span class="wrap band-inner">
       <span class="band-title">Affiliates</span>
-      <span class="band-count">{{ people.affiliates.length }}</span>
     </span>
   </h2>
   <div class="wrap section-body">
@@ -63,7 +62,6 @@ description: MIT Architecture Research group homepage
   <h2 class="band">
     <span class="wrap band-inner">
       <span class="band-title">PhD Students</span>
-      <span class="band-count">{{ people.students.length }}</span>
     </span>
   </h2>
   <div class="wrap section-body">
@@ -77,7 +75,6 @@ description: MIT Architecture Research group homepage
   <h2 class="band">
     <span class="wrap band-inner">
       <span class="band-title">Alumni</span>
-      <span class="band-count">{{ people.alumni.length }}</span>
     </span>
   </h2>
   <div class="wrap section-body">
