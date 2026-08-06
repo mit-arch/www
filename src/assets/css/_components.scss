@@ -21,10 +21,6 @@
   object-fit: cover;
   background: #e6e5e1;
   border: 1px solid var(--rule);
-  // Ten real photographs and thirty placeholders sit in the same wall.
-  // Desaturating everything makes that one wall instead of two.
-  filter: grayscale(1) contrast(1.04);
-  transition: filter 200ms ease;
 }
 
 .person-link {
@@ -33,9 +29,25 @@
   text-decoration: none;
 }
 
-.person:hover .person-portrait,
-.person:focus-within .person-portrait {
-  filter: grayscale(0);
+// Faculty and affiliates have real photographs and are the people a visitor is
+// most often looking for, so they get the larger portrait. Students keep the
+// compact size — there are thirty of them.
+.people-grid--lg {
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+}
+
+.people-grid--lg .person {
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: var(--sp-4);
+}
+
+.people-grid--lg .person-portrait {
+  width: 96px;
+  height: 96px;
+}
+
+.people-grid--lg .person-name {
+  font-size: var(--fs-md);
 }
 
 .person-name {
@@ -109,6 +121,43 @@
 .record-title {
   font-size: var(--fs-md);
   font-weight: 700;
+}
+
+// ------------------------------------------------------------------ alumni
+
+// One line per person: year, name, where they went. A full record row gave each
+// alumnus three lines and far more vertical space than the content earns.
+.alumni-list {
+  display: grid;
+}
+
+.alumni-row {
+  display: grid;
+  grid-template-columns: 4rem minmax(8rem, 16rem) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-4);
+  padding-block: var(--sp-3);
+  border-top: 1px solid var(--rule);
+  font-size: var(--fs-sm);
+}
+
+.alumni-row:first-child {
+  border-top: 0;
+}
+
+.alumni-year {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
+  color: var(--steel);
+}
+
+.alumni-name {
+  font-weight: 700;
+}
+
+.alumni-job {
+  color: var(--steel);
 }
 
 .tag {
@@ -237,6 +286,16 @@
   .record {
     grid-template-columns: 1fr;
     gap: var(--sp-2);
+  }
+
+  // Year stays on the name's line; only the destination drops below.
+  .alumni-row {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: var(--sp-1) var(--sp-3);
+  }
+
+  .alumni-job {
+    grid-column: 2;
   }
 }
 

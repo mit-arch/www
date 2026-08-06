@@ -329,8 +329,6 @@ a:hover {
   object-fit: cover;
   background: #e6e5e1;
   border: 1px solid var(--rule);
-  filter: grayscale(1) contrast(1.04);
-  transition: filter 200ms ease;
 }
 
 .person-link {
@@ -339,9 +337,22 @@ a:hover {
   text-decoration: none;
 }
 
-.person:hover .person-portrait,
-.person:focus-within .person-portrait {
-  filter: grayscale(0);
+.people-grid--lg {
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+}
+
+.people-grid--lg .person {
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: var(--sp-4);
+}
+
+.people-grid--lg .person-portrait {
+  width: 96px;
+  height: 96px;
+}
+
+.people-grid--lg .person-name {
+  font-size: var(--fs-md);
 }
 
 .person-name {
@@ -408,6 +419,39 @@ a:hover {
 .record-title {
   font-size: var(--fs-md);
   font-weight: 700;
+}
+
+.alumni-list {
+  display: grid;
+}
+
+.alumni-row {
+  display: grid;
+  grid-template-columns: 4rem minmax(8rem, 16rem) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-4);
+  padding-block: var(--sp-3);
+  border-top: 1px solid var(--rule);
+  font-size: var(--fs-sm);
+}
+
+.alumni-row:first-child {
+  border-top: 0;
+}
+
+.alumni-year {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
+  color: var(--steel);
+}
+
+.alumni-name {
+  font-weight: 700;
+}
+
+.alumni-job {
+  color: var(--steel);
 }
 
 .tag {
@@ -520,6 +564,13 @@ a:hover {
   .record {
     grid-template-columns: 1fr;
     gap: var(--sp-2);
+  }
+  .alumni-row {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: var(--sp-1) var(--sp-3);
+  }
+  .alumni-job {
+    grid-column: 2;
   }
 }
 @media (max-width: 900px) {

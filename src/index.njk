@@ -42,7 +42,7 @@ description: MIT Architecture Research group homepage
     </span>
   </h2>
   <div class="wrap section-body">
-    <div class="people-grid">
+    <div class="people-grid people-grid--lg">
       {% for person in people.faculty %}{{ personCard(person) }}{% endfor %}
     </div>
   </div>
@@ -56,7 +56,7 @@ description: MIT Architecture Research group homepage
     </span>
   </h2>
   <div class="wrap section-body">
-    <div class="people-grid">
+    <div class="people-grid people-grid--lg">
       {% for person in people.affiliates %}{{ personCard(person) }}{% endfor %}
     </div>
   </div>
@@ -86,23 +86,19 @@ description: MIT Architecture Research group homepage
     </span>
   </h2>
   <div class="wrap section-body">
-    <div class="record-list">
+    <div class="alumni-list">
       {% for person in people.alumni %}
-        <article class="record">
-          <div class="record-meta">
-            <span>{{ person.graduation_year }}</span>
-          </div>
-          <div class="record-copy">
-            <p class="record-title">
-              {% if person.website %}
-                <a href="{{ person.website }}"{% if person.website | isExternalUrl %} target="_blank" rel="noreferrer"{% endif %}>{{ person.name }}</a>
-              {% else %}
-                {{ person.name }}
-              {% endif %}
-            </p>
-            {% if person.current_job %}<p>{{ person.current_job }}</p>{% endif %}
-          </div>
-        </article>
+        <p class="alumni-row">
+          <span class="alumni-year">{{ person.graduation_year }}</span>
+          <span class="alumni-name">
+            {% if person.website %}
+              <a href="{{ person.website }}"{% if person.website | isExternalUrl %} target="_blank" rel="noreferrer"{% endif %}>{{ person.name }}</a>
+            {% else %}
+              {{ person.name }}
+            {% endif %}
+          </span>
+          {% if person.current_job %}<span class="alumni-job">{{ person.current_job }}</span>{% endif %}
+        </p>
       {% endfor %}
     </div>
   </div>

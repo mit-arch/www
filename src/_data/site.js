@@ -12,7 +12,7 @@ module.exports = {
   // the machine timeline underneath it is what makes the claim checkable.
   hero: {
     eyebrow: "Cambridge, Massachusetts",
-    title: "Six decades of computer architecture.",
+    title: "MIT Computer Architecture Group",
     body:
       "The MIT Architecture Group has been designing state of the art tools and systems across the hardware, software, and system abstractions for six decades."
   },
