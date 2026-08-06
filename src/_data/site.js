@@ -8,10 +8,8 @@ module.exports = {
     "Research in computer architecture, systems, compilers, and hardware-software co-design.",
   groupName: "MIT ARCH Group",
   location: "Massachusetts Institute of Technology",
-  // All three are rendered by the homepage hero. `title` is the display line;
-  // the machine timeline underneath it is what makes the claim checkable.
+  // Both are rendered by the homepage hero. `title` is the display line.
   hero: {
-    eyebrow: "Cambridge, Massachusetts",
     title: "MIT Computer Architecture Group",
     body:
       "The MIT Architecture Group has been designing state of the art tools and systems across the hardware, software, and system abstractions for six decades."

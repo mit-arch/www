@@ -450,13 +450,13 @@ a:hover {
 }
 
 .rail-title {
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  font-weight: 400;
-  letter-spacing: 0.14em;
+  font-size: var(--fs-md);
+  font-weight: 800;
+  font-stretch: 112%;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--crimson);
-  padding-bottom: var(--sp-3);
+  padding-bottom: var(--sp-2);
   border-bottom: 1px solid var(--ink);
   margin-bottom: var(--sp-2);
 }
@@ -464,15 +464,6 @@ a:hover {
 .hero-rail .ledger-date {
   width: 3.75rem;
   padding-right: var(--sp-2);
-}
-
-.hero-eyebrow {
-  font-family: var(--font-mono);
-  font-size: var(--fs-2xs);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--crimson);
-  margin-bottom: var(--sp-4);
 }
 
 .hero-title {
