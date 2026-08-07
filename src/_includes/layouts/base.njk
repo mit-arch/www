@@ -8,7 +8,7 @@
     {# Both faces are used above the fold, so both are worth preloading. #}
     <link rel="preload" href="{{ '/assets/fonts/archivo-var-latin.woff2' | siteUrl }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ '/assets/fonts/plex-mono-400-latin.woff2' | siteUrl }}" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{{ '/assets/css/site.css' | siteUrl }}">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | cacheBust | siteUrl }}">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
