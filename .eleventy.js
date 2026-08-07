@@ -1,3 +1,7 @@
+const crypto = require("crypto");
+const fs = require("fs");
+const path = require("path");
+
 const site = require("./src/_data/site");
 
 function shortYear(value) {
@@ -108,6 +112,34 @@ module.exports = function (eleventyConfig) {
     }
 
     return "";
+  });
+
+  // Assets ship under stable names, and GitHub Pages serves them with a
+  // ten-minute max-age we cannot configure. Without a content hash in the URL a
+  // browser holding the previous site.css will pair it with freshly deployed
+  // HTML and render the site unstyled. Hashing the built file means a changed
+  // stylesheet is always a changed URL, so the pairing cannot happen.
+  eleventyConfig.addFilter("cacheBust", (value) => {
+    const stringValue = String(value || "");
+
+    if (!stringValue.startsWith("/")) {
+      return stringValue;
+    }
+
+    // Site-absolute asset URLs mirror their source location under src/.
+    const sourcePath = path.join(__dirname, "src", stringValue);
+
+    if (!fs.existsSync(sourcePath)) {
+      return stringValue;
+    }
+
+    const digest = crypto
+      .createHash("sha256")
+      .update(fs.readFileSync(sourcePath))
+      .digest("hex")
+      .slice(0, 8);
+
+    return `${stringValue}?v=${digest}`;
   });
 
   eleventyConfig.addFilter("isExternalUrl", (value) => /^https?:\/\//.test(value || ""));
