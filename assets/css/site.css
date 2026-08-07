@@ -48,6 +48,8 @@
   --sp-9: 6rem;
   --measure: 1180px;
   --gutter: var(--sp-5);
+  --frame: calc(var(--measure) + var(--gutter) * 2);
+  --page-margin: 0px;
 }
 
 *,
@@ -152,11 +154,26 @@ a:hover {
     transition-duration: 0.01ms !important;
   }
 }
-.wrap {
-  width: min(100% - var(--gutter) * 2, var(--measure));
+.masthead,
+main,
+.site-footer {
+  width: min(100% - var(--page-margin) * 2, var(--frame));
   margin-inline: auto;
 }
 
+.wrap {
+  padding-inline: var(--gutter);
+}
+
+body {
+  padding-bottom: var(--page-margin);
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --page-margin: var(--sp-6);
+  }
+}
 .masthead {
   background: var(--crimson);
   color: var(--knockout);
