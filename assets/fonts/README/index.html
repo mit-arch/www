@@ -1,0 +1,52 @@
+<h1>Fonts</h1>
+<p>Self-hosted rather than loaded from a CDN: no third-party request on render, no
+privacy or uptime dependency, and identical rendering on every platform. The
+previous stylesheet used Avenir Next and Iowan Old Style, both macOS-only, so
+the site rendered as Segoe UI + Georgia on Windows and generic sans/serif on
+Linux.</p>
+<p>These are the <strong>latin subsets</strong> as served by Google Fonts (<code>unicode-range</code>
+U+0000–00FF plus common punctuation and symbols), downloaded and committed. To
+refresh, request the CSS with a browser user agent and download the URL from
+the <code>/* latin */</code> block:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Family</th>
+<th>Axes / weights</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>archivo-var-latin.woff2</code></td>
+<td>Archivo</td>
+<td>variable, <code>wght</code> 400–900, <code>wdth</code> 62–125%</td>
+<td>90 KB</td>
+</tr>
+<tr>
+<td><code>plex-mono-400-latin.woff2</code></td>
+<td>IBM Plex Mono</td>
+<td>400</td>
+<td>10 KB</td>
+</tr>
+<tr>
+<td><code>plex-mono-600-latin.woff2</code></td>
+<td>IBM Plex Mono</td>
+<td>600</td>
+<td>10 KB</td>
+</tr>
+</tbody>
+</table>
+<p>Archivo carries both a weight and a width axis in one file, which is why the
+masthead can be genuinely expanded rather than letterspaced to imitate it.</p>
+<h2>Licensing</h2>
+<p>Both families are licensed under the <strong>SIL Open Font License 1.1</strong>, which
+permits embedding and redistribution in this form.</p>
+<ul>
+<li>Archivo — Omnibus-Type, <a href="https://github.com/Omnibus-Type/Archivo">https://github.com/Omnibus-Type/Archivo</a></li>
+<li>IBM Plex Mono — IBM, <a href="https://github.com/IBM/plex">https://github.com/IBM/plex</a></li>
+</ul>
+<p><code>@font-face</code> declarations live in <code>src/assets/css/_tokens.scss</code>. Paths there are
+relative to the stylesheet, so they survive any <code>SITE_BASE_PATH</code> without going
+through the <code>siteUrl</code> filter.</p>
