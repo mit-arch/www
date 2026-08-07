@@ -1,9 +1,30 @@
-// Bands run the full viewport width; .wrap pulls their contents back to the
-// measure. This replaces the old single .site-shell wrapper, which made
-// full-bleed anything impossible.
-.wrap {
-  width: min(100% - (var(--gutter) * 2), var(--measure));
+// Bands run the full width of the page frame — the viewport on small screens,
+// an inset sheet on large ones — and .wrap pulls their contents in by a gutter.
+// The frame lives on the three top-level blocks rather than on each band, so a
+// band nested in <main> inherits it for free.
+.masthead,
+main,
+.site-footer {
+  width: min(100% - (var(--page-margin) * 2), var(--frame));
   margin-inline: auto;
+}
+
+.wrap {
+  padding-inline: var(--gutter);
+}
+
+// Matches the side margins so the footer bar doesn't sit flush against the
+// bottom of a viewport it no longer spans.
+body {
+  padding-bottom: var(--page-margin);
+}
+
+// The margin only appears once there is room for a real one. Below this the
+// frame fills the viewport and the layout is byte-for-byte what it was.
+@media (min-width: 1300px) {
+  :root {
+    --page-margin: var(--sp-6);
+  }
 }
 
 // ---------------------------------------------------------------- masthead

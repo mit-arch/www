@@ -67,4 +67,12 @@
 
   --measure: 1180px;
   --gutter: var(--sp-5);
+
+  // The page frame: the widest the ink bands ever get. Below this the frame is
+  // the viewport, so nothing changes on small screens.
+  --frame: calc(var(--measure) + var(--gutter) * 2);
+
+  // Paper left either side of the frame. Zero until the viewport is wide enough
+  // that the margin reads as deliberate rather than as a hairline.
+  --page-margin: 0px;
 }
