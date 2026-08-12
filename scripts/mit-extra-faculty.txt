@@ -1,0 +1,10 @@
+# MIT faculty that CSrankings' roster does not list.
+#
+# CSrankings only includes tenure-track faculty, so professors of the practice,
+# research scientists and adjuncts are missing even though they lead groups and
+# author papers.  Names must be spelled exactly as DBLP spells them, including
+# any homonym suffix -- check https://dblp.org before adding a line.
+#
+# Pass this file with --extra-faculty mit-extra-faculty.txt
+
+Joel S. Emer          # Professor of the Practice, EECS
