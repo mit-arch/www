@@ -32,7 +32,7 @@ description: MIT Architecture Research group homepage
   </h2>
   <div class="wrap section-body">
     <div class="people-grid people-grid--lg">
-      {% for person in people.faculty %}{{ personCard(person) }}{% endfor %}
+      {% for person in people.faculty %}{{ personCard(person, false) }}{% endfor %}
     </div>
   </div>
 </section>
