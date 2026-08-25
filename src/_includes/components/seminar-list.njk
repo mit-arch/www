@@ -36,9 +36,9 @@
               {% endif %}
             </td>
             {# Time, room, and format are the same for every talk in a term, so
-               they are stated once in the term's schedule_note above the table
-               rather than repeated down a column. The fields stay in the YAML
-               because the .ics feed still writes them into each event. #}
+               they are stated once on the term, rendered above the table rather
+               than repeated down a column. seminarTerms folds them back into
+               each talk because the .ics feed writes them into every event. #}
             {# Rendered with no whitespace so a talk with no host leaves a truly
                empty cell, which the mobile reflow can skip labelling. #}
             <td class="schedule-host"{% if talk.host %} data-label="Host"{% endif %}>{% if talk.host %}{{ talk.host }}{% endif %}</td>

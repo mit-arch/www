@@ -32,16 +32,34 @@ module.exports = function seminarTerms() {
       const raw = fs.readFileSync(path.join(TERMS_DIR, file), "utf8");
       const parsed = yaml.load(raw) || {};
       const term = parsed.term || {};
+      // Time and room are a property of the term's standing slot, not of any
+      // one talk, so they live on `term` and are folded into each row here.
+      // A talk may still carry its own `time`/`location` for the odd week that
+      // moves; whatever it sets wins over the term default.
       const talks = Array.isArray(parsed.talks)
-        ? parsed.talks.slice().sort((a, b) => new Date(a.date) - new Date(b.date))
+        ? parsed.talks
+            .slice()
+            .sort((a, b) => new Date(a.date) - new Date(b.date))
+            .map((talk) => ({
+              time: term.time || "",
+              location: term.location || "",
+              ...talk
+            }))
         : [];
 
       return {
         slug: term.slug || slug,
         label: term.title || slug,
-        description: term.schedule_note || "",
+        // The line above the schedule is the standing slot spelled out, so it
+        // is built from the same three fields rather than repeated by hand.
+        // `schedule_note` still wins if a term needs to say something else.
+        description:
+          term.schedule_note ||
+          [term.day, term.time, term.location].filter(Boolean).join(", "),
         theme: term.theme || "",
         host: term.host || "",
+        time: term.time || "",
+        location: term.location || "",
         talks
       };
     })

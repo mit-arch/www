@@ -1,22 +1,20 @@
-# Transcribed from spring26.csv. Times and location carry over from the standing
-# term slot, since the CSV records only dates.
+# Transcribed from spring26.csv. Day, time, and room are the term's standing
+# slot and are stated once under "term"; a talk records only what varies.
 term:
   slug: spring-2026
   title: Spring 2026
   host: MIT Architecture Research Group
-  schedule_note: Fridays, 1:00 PM, 34-401
+  day: Fridays
+  time: 1:00 PM
+  location: 34-401
 
 talks:
   - date: 2026-02-20
-    time: 1:00 PM
-    location: 34-401
     speaker: Rachit Nigam
     affiliation: MIT
     title: Kick-off!
 
   - date: 2026-02-27
-    time: 1:00 PM
-    location: 34-401
     speaker: Yonathan Fisseha
     affiliation: University of Michigan
     host: Mengjia Yan
@@ -27,15 +25,11 @@ talks:
     title: Visit day lunch instead
 
   - date: 2026-03-13
-    time: 1:00 PM
-    location: 34-401
     speaker: Jianming Tong
     affiliation: Georgia Tech
     title: Enabling AI ASICs for Cryptography Primitives
 
   - date: 2026-03-20
-    time: 1:00 PM
-    location: 34-401
     speaker: Xingran Du
     affiliation: MIT
     title: Accelerating Automata Processing
@@ -45,22 +39,16 @@ talks:
     title: Spring Break
 
   - date: 2026-04-03
-    time: 1:00 PM
-    location: 34-401
     speaker: Courtney Golden
     affiliation: MIT
     title: "Quartz: A Reconfigurable, Distributed-Memory Accelerator for Sparse Applications"
 
   - date: 2026-04-10
-    time: 1:00 PM
-    location: 34-401
     speaker: Joonhyup
     affiliation: MIT
     title: TBD
 
   - date: 2026-04-17
-    time: 1:00 PM
-    location: 34-401
     speaker: Elam Day-Friedland
     affiliation: MIT
     title: TBD
@@ -70,36 +58,26 @@ talks:
     title: New England Hardware Security Day
 
   - date: 2026-05-01
-    time: 1:00 PM
-    location: 34-401
     speaker: Christos Zarkos
     affiliation: MIT
     title: TBD
 
   - date: 2026-05-08
-    time: 1:00 PM
-    location: 34-401
     speaker: Peter Deutsch
     affiliation: MIT
     title: Understanding Architectural Vulnerability to Hardware Fault
 
   - date: 2026-05-15
-    time: 1:00 PM
-    location: 34-401
     speaker: Varun Gohil
     affiliation: MIT
     title: Building Resilient ML-Based Computer Systems by Embracing Uncertainty
 
   - date: 2026-05-22
-    time: 1:00 PM
-    location: 34-401
     speaker: Jing Li
     host: Joel Emer
     title: "Liquid Machine: A 15-year Journey Towards Software-Defined Everything"
 
   - date: 2026-05-29
-    time: 1:00 PM
-    location: 34-401
     speaker: Sridevi
     host: Mengjia Yan
     title: TBD
