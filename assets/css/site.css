@@ -701,17 +701,73 @@ body {
     padding-block: var(--sp-3);
     border-top: 0;
   }
-  .schedule-host:not(:empty)::before,
-  .schedule-speaker::before {
+  .schedule tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--sp-3);
+    align-items: baseline;
+  }
+  .schedule tbody td + td {
+    margin-top: 0;
+  }
+  .schedule tbody .schedule-date {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .schedule tbody .schedule-host:not(:empty) {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    text-align: right;
+  }
+  .schedule tbody .schedule-speaker,
+  .schedule tbody .schedule-talk,
+  .schedule tbody .schedule-none {
+    grid-column: 1/-1;
+  }
+  .schedule tbody .schedule-speaker {
+    margin-top: var(--sp-2);
+  }
+  .schedule tbody .schedule-talk,
+  .schedule tbody .schedule-none {
+    margin-top: var(--sp-1);
+  }
+  .schedule tbody .schedule-affiliation {
+    display: inline;
+  }
+  .schedule tbody .schedule-affiliation::before {
+    content: ", ";
+  }
+  .schedule-host:not(:empty)::before {
     content: attr(data-label);
-    display: block;
     font-family: var(--font-mono);
     font-size: var(--fs-2xs);
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--steel);
-    margin-bottom: var(--sp-1);
+    margin-right: 0.5em;
+  }
+}
+@media (max-width: 760px) and (min-width: 521px) {
+  .schedule tbody tr {
+    grid-template-columns: 8.5rem minmax(0, 1fr) auto;
+  }
+  .schedule tbody .schedule-speaker {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+  }
+  .schedule tbody .schedule-host:not(:empty) {
+    grid-column: 3;
+  }
+  .schedule tbody .schedule-talk {
+    grid-column: 2/-1;
+  }
+  .schedule tbody .schedule-none {
+    grid-column: 2/-1;
+    grid-row: 1;
+    margin-top: 0;
   }
 }
 @media (max-width: 900px) {
