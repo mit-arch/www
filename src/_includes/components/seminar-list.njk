@@ -1,6 +1,7 @@
 {# schedule(term) — the seminar schedule is tabular data, so it is a table.
-   Below 760px the CSS hides the header row and each <tr> reflows to a block
-   whose cells carry their own labels via data-label. #}
+   Below 760px the CSS hides the header row and each <tr> reflows to a record:
+   date and host on one meta line, then the speaker, then the talk. Only the
+   host needs naming out of its column, which it does via data-label. #}
 {% macro schedule(term) %}
   <table class="data-table schedule">
     <caption class="visually-hidden">{{ term.label }} seminar schedule</caption>
@@ -22,10 +23,9 @@
               <span class="schedule-flag">No seminar</span>{{ talk.title }}
             </td>
           {% else %}
-            <td class="schedule-speaker" data-label="Speaker">
-              {{ talk.speaker }}
-              {% if talk.affiliation %}<span class="schedule-affiliation">{{ talk.affiliation }}</span>{% endif %}
-            </td>
+            {# No break between the name and the affiliation: on mobile the two
+               run together on one line and the comma is drawn in CSS. #}
+            <td class="schedule-speaker">{{ talk.speaker }}{% if talk.affiliation %}<span class="schedule-affiliation">{{ talk.affiliation }}</span>{% endif %}</td>
             <td class="schedule-talk">
               <span class="schedule-title">{{ talk.title }}</span>
               {% if talk.abstract %}<p class="schedule-abstract">{{ talk.abstract }}</p>{% endif %}

@@ -293,20 +293,108 @@
     border-top: 0;
   }
 
-  // Most talks have no host, and an empty cell should not get a HOST label.
-  .schedule-host:not(:empty)::before,
-  .schedule-speaker::before {
+  // ------------------------------------------------ the seminar record
+  // Stacking all four cells left every one of them — a date, a name, a host —
+  // ending in dead horizontal space. Instead the two short facts share a meta
+  // line, and only the speaker and the talk get the full measure.
+  // Selectors are doubled up on .schedule tbody so they outrank the margin on
+  // `.data-table tbody td + td` above, which is (0,1,3).
+  .schedule tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--sp-3);
+    align-items: baseline;
+  }
+
+  .schedule tbody td + td {
+    margin-top: 0;
+  }
+
+  .schedule tbody .schedule-date {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  // Right-hand end of the meta line. An empty cell takes no track and no label.
+  // Placed on row 1 explicitly: the host cell is last in source order, and
+  // auto-placement would otherwise drop it below the talk.
+  .schedule tbody .schedule-host:not(:empty) {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    text-align: right;
+  }
+
+  .schedule tbody .schedule-speaker,
+  .schedule tbody .schedule-talk,
+  .schedule tbody .schedule-none {
+    grid-column: 1 / -1;
+  }
+
+  .schedule tbody .schedule-speaker {
+    margin-top: var(--sp-2);
+  }
+
+  .schedule tbody .schedule-talk,
+  .schedule tbody .schedule-none {
+    margin-top: var(--sp-1);
+  }
+
+  // Affiliation rides on the speaker's line rather than claiming one of its own.
+  .schedule tbody .schedule-affiliation {
+    display: inline;
+  }
+
+  .schedule tbody .schedule-affiliation::before {
+    content: ", ";
+  }
+
+  // The name in bold is already the speaker; a SPEAKER label above it only
+  // pushed the record taller. The host still needs naming, inline on the meta
+  // line, and most talks have no host — an empty cell gets no label.
+  .schedule-host:not(:empty)::before {
     content: attr(data-label);
-    display: block;
     font-family: var(--font-mono);
     font-size: var(--fs-2xs);
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--steel);
-    margin-bottom: var(--sp-1);
+    margin-right: 0.5em;
   }
 
+}
+
+// Between the table breakpoint and the compact one there is still width for a
+// date gutter, so the record runs wide instead of stacking: date, then speaker
+// and talk in one column, then host at the right edge. Only under 520 does the
+// meta line get a row of its own.
+@media (max-width: 760px) and (min-width: 521px) {
+  .schedule tbody tr {
+    grid-template-columns: 8.5rem minmax(0, 1fr) auto;
+  }
+
+  .schedule tbody .schedule-speaker {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  .schedule tbody .schedule-host:not(:empty) {
+    grid-column: 3;
+  }
+
+  // The title runs under the host column too: the host track is reserved for
+  // one row in a dozen, and the title is the row that wants the width.
+  .schedule tbody .schedule-talk {
+    grid-column: 2 / -1;
+  }
+
+  .schedule tbody .schedule-none {
+    grid-column: 2 / -1;
+    grid-row: 1;
+    margin-top: 0;
+  }
 }
 
 // Two readable columns need about 900px. Below that the band stacks, and

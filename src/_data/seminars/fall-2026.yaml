@@ -14,8 +14,8 @@ term:
 
 talks:
   - date: 2026-09-14
-    speaker: Rachit
-    title: Kickoff!
+    speaker: Rachit & Courtney
+    title: Seminar Kickoff!
 
   - date: 2026-09-21
     speaker: TBD
@@ -50,8 +50,10 @@ talks:
     title: TBD
 
   - date: 2026-11-16
-    speaker: TBD
-    title: TBD
+    speaker: Nikil Shyamsunder
+    affiliation: Cornell University
+    title: Hardware Communication as a Program
+    host: Rachit Nigam
 
   - date: 2026-11-23
     speaker: TBD
