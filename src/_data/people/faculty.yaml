@@ -1,45 +1,34 @@
 # Ordered by last name. Portraits are matched by name from
 # src/assets/images/people/ — see src/_data/people.js.
 - name: Adam Chlipala
-  title: Full Professor
   website: https://adam.chlipala.net/
 
 - name: Christina Delimitrou
-  title: Associate Professor
   website: https://people.csail.mit.edu/delimitrou/
 
 - name: Srini Devadas
-  title: Full Professor
   website: https://people.csail.mit.edu/devadas/
 
 - name: Joel Emer
-  title: Professor of the Practice
   website: https://people.csail.mit.edu/emer/
 
 - name: Song Han
-  title: Associate Professor
   website: https://hanlab.mit.edu/songhan
 
 - name: Silvina Hanono Wachman
-  title: Senior Lecturer
   website: https://www.eecs.mit.edu/people/silvina-z-hanono-wachman/
 
 - name: Rachit Nigam
-  title: Assistant Professor
   website: https://rachitnigam.com
 
 - name: Daniel Sanchez
-  title: Full Professor
   website: https://people.csail.mit.edu/sanchez/
 
 - name: Joe Steinmeyer
-  title: Senior Lecturer
   website: https://www.jodalyst.com/
 
 - name: Vivienne Sze
-  title: Full Professor
   website: https://eems.mit.edu/
 
 - name: Mengjia Yan
-  title: Associate Professor
   website: https://people.csail.mit.edu/mengjia/
