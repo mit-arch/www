@@ -1,5 +1,9 @@
 # Ordered by last name. Portraits are matched by name from
 # src/assets/images/people/ — see src/_data/people.js.
+- name: Adam Chlipala
+  title: Full Professor
+  website: https://adam.chlipala.net/
+
 - name: Christina Delimitrou
   title: Associate Professor
   website: https://people.csail.mit.edu/delimitrou/
