@@ -52,7 +52,7 @@ talks:
   - date: 2026-11-16
     speaker: Nikil Shyamsunder
     affiliation: Cornell University
-    title: Hardware Communication as a Program
+    title: Specifying Hardware Communication as Programs
     host: Rachit Nigam
 
   - date: 2026-11-23
