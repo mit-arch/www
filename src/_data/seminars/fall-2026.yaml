@@ -18,8 +18,8 @@ talks:
     title: Seminar Kickoff!
 
   - date: 2026-09-21
-    speaker: TBD
-    title: TBD
+    speaker: Joonhyup
+    title: Formal Verification with AI
 
   - date: 2026-09-28
     speaker: TBD
@@ -31,25 +31,23 @@ talks:
     title: TBD
     host: Mengjia Yan
 
-  - date: 2026-10-12
-    cancelled: true
-    title: Indigenous People's Day
+  - date: 2026-10-13
+    speaker: Christos
+    title: MICRO Practice Talk
 
   - date: 2026-10-19
     speaker: TBD
     title: TBD
 
   - date: 2026-10-26
-    speaker: TBD
-    title: TBD
+    speaker: Liam & Armaan
+    title: Developing a RISC-V Softcore in Chisel
 
   - date: 2026-11-02
-    speaker: TBD
-    title: TBD
+    speaker: PLDI Feedback Session
 
   - date: 2026-11-09
-    speaker: TBD
-    title: TBD
+    speaker: ISCA Feedback Session
 
   - date: 2026-11-16
     speaker: Nikil Shyamsunder
