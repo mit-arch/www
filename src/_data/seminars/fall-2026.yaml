@@ -26,22 +26,22 @@ talks:
     title: TBD
 
   - date: 2026-10-05
-    speaker: Sridevi Lalitha
-    affiliation: TBD
+    speaker: TBD
     title: TBD
-    host: Mengjia Yan
 
   - date: 2026-10-13
     speaker: Christos
     title: MICRO Practice Talk
 
   - date: 2026-10-19
-    speaker: TBD
-    title: TBD
-
-  - date: 2026-10-26
     speaker: Liam & Armaan
     title: Developing a RISC-V Softcore in Chisel
+  
+  - date: 2026-10-26
+    speaker: Sridevi Lalitha
+    affiliation: TBD
+    title: TBD
+    host: Mengjia Yan
 
   - date: 2026-11-02
     speaker: PLDI Feedback Session
