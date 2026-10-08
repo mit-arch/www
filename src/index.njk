@@ -52,7 +52,7 @@ description: MIT Architecture Research group homepage
 
 {# Names only: each student's advisor lives in their `program` field and is
    deliberately not rendered here. #}
-<section class="section" id="students">
+<section class="section" id="phd-students">
   <h2 class="band">
     <span class="wrap band-inner">
       <span class="band-title">PhD Students</span>
@@ -60,7 +60,20 @@ description: MIT Architecture Research group homepage
   </h2>
   <div class="wrap section-body">
     <div class="people-grid">
-      {% for person in people.students %}{{ personCard(person, false) }}{% endfor %}
+      {% for person in people.phd_students %}{{ personCard(person, false) }}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="undergraduates">
+  <h2 class="band">
+    <span class="wrap band-inner">
+      <span class="band-title">Undergraduates</span>
+    </span>
+  </h2>
+  <div class="wrap section-body">
+    <div class="people-grid">
+      {% for person in people.undergraduates %}{{ personCard(person, false) }}{% endfor %}
     </div>
   </div>
 </section>

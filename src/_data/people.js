@@ -8,10 +8,10 @@ const PORTRAIT_DIR = path.join(SRC_DIR, "assets", "images", "people");
 const PORTRAIT_URL = "/assets/images/people";
 const PLACEHOLDER_URL = "/assets/images/placeholder-portrait.svg";
 
-const SECTIONS = ["faculty", "students", "affiliates", "alumni"];
+const SECTIONS = ["faculty", "phd_students", "undergraduates", "affiliates", "alumni"];
 
 // Alumni render as a text list, so a missing portrait there is not worth reporting.
-const PORTRAIT_SECTIONS = ["faculty", "students", "affiliates"];
+const PORTRAIT_SECTIONS = ["faculty", "phd_students", "undergraduates", "affiliates"];
 
 // Most preferred first: if someone ships both a .webp and a .jpg, the .webp wins.
 const PORTRAIT_EXTENSIONS = [".webp", ".avif", ".jpg", ".jpeg", ".png", ".svg"];
