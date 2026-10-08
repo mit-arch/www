@@ -96,13 +96,16 @@
   vertical-align: top;
 }
 
+// The date is how a reader finds this week's row, so it is set in ink at the
+// mono's heavier cut rather than receding with the other secondary facts.
 .schedule-date {
   width: 8.5rem;
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--steel);
+  color: var(--ink);
   white-space: nowrap;
 }
 
@@ -112,10 +115,12 @@
   font-size: var(--fs-sm);
 }
 
+// Same size as the name so the two share a baseline when they run inline on
+// mobile; weight and colour alone mark it as secondary.
 .schedule-affiliation {
   display: block;
   font-weight: 400;
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   color: var(--steel);
 }
 
@@ -146,13 +151,21 @@
 // across a term and now live in the schedule note above the table.
 .schedule-host {
   width: 9rem;
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   color: var(--steel);
 }
 
-// Weeks with no talk stay on the schedule but recede from it.
-.schedule tr.is-cancelled td {
+// Weeks with no talk, and talks that have already run, stay on the schedule
+// but recede from it. Colour rather than opacity: the steel text in these rows
+// is already at the edge of comfortable contrast and must not fade further.
+.schedule tr.is-cancelled td,
+.schedule tr.is-past td {
   color: var(--steel);
+}
+
+// Once a talk has run, its link is the useful part of the row.
+.schedule tr.is-past a {
+  color: var(--ink);
 }
 
 .schedule-none {
