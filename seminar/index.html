@@ -8,7 +8,7 @@
     
     <link rel="preload" href="/assets/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/site.css?v=f9de06d3">
+    <link rel="stylesheet" href="/assets/css/site.css?v=fef7ddbb">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -255,6 +255,22 @@
       
     </tbody>
   </table>
+  
+  <script>
+    (function (table) {
+      var now = new Date();
+      var today = [
+        now.getFullYear(),
+        String(now.getMonth() + 1).padStart(2, "0"),
+        String(now.getDate()).padStart(2, "0")
+      ].join("-");
+      table.querySelectorAll("tbody tr").forEach(function (row) {
+        var date = row.querySelector("time").getAttribute("datetime");
+        console.assert(/^\d{4}-\d{2}-\d{2}$/.test(date), "schedule row has no ISO date", row);
+        row.classList.toggle("is-past", date < today);
+      });
+    })(document.currentScript.previousElementSibling);
+  </script>
 
   
 

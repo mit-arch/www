@@ -541,9 +541,10 @@ body {
   width: 8.5rem;
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--steel);
+  color: var(--ink);
   white-space: nowrap;
 }
 
@@ -556,7 +557,7 @@ body {
 .schedule-affiliation {
   display: block;
   font-weight: 400;
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   color: var(--steel);
 }
 
@@ -584,12 +585,17 @@ body {
 
 .schedule-host {
   width: 9rem;
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   color: var(--steel);
 }
 
-.schedule tr.is-cancelled td {
+.schedule tr.is-cancelled td,
+.schedule tr.is-past td {
   color: var(--steel);
+}
+
+.schedule tr.is-past a {
+  color: var(--ink);
 }
 
 .schedule-none {
