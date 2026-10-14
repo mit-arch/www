@@ -37,10 +37,7 @@ talks:
     title: Developing a RISC-V Softcore in Chisel
   
   - date: 2026-10-26
-    speaker: Sridevi Lalitha
-    affiliation: TBD
-    title: TBD
-    host: Mengjia Yan
+    speaker: TBD
 
   - date: 2026-11-02
     speaker: PLDI Feedback Session
@@ -55,8 +52,10 @@ talks:
     host: Rachit Nigam
 
   - date: 2026-11-23
-    speaker: TBD
+    speaker: Sridevi Lalitha
+    affiliation: TBD
     title: TBD
+    host: Mengjia Yan
 
   - date: 2026-11-30
     speaker: Monica
