@@ -38,7 +38,7 @@ talks:
   
   - date: 2026-10-26
     speaker: Yuheng
-	title: RTL Verification with Model Checkers
+    title: RTL Verification with Model Checkers
 
   - date: 2026-11-02
     speaker: PLDI Feedback Session
